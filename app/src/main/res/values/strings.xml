@@ -2,4 +2,5 @@
     <string name="app_name">Skandinavcha Yurish</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sign_up_title">Ilovani ishga tushirish uchun <font color='#1464FF'>\nRo\'yxatdan o\'ting</font></string>
 </resources>
