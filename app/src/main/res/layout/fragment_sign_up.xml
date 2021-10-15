@@ -1,9 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.start.SignUpFragment">
+
+    <ImageView
+        android:id="@+id/image1"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/img1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.scwang.wave.MultiWaveHeader
+        android:id="@+id/waveHeader"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="-50dp"
+        android:scaleY="-1"
+        app:layout_constraintBottom_toBottomOf="@id/image1"
+        app:layout_constraintTop_toBottomOf="@id/image1"
+        app:mwhCloseColor="@color/white"
+        app:mwhColorAlpha="0.9"
+        app:mwhGradientAngle="30"
+        app:mwhIsRunning="true"
+        app:mwhProgress="1"
+        app:mwhStartColor="@color/white"
+        app:mwhVelocity="1"
+        app:mwhWaveHeight="100dp"
+        app:mwhWaves="PairWave" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textColor="@android:color/white"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="@id/image1"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 
