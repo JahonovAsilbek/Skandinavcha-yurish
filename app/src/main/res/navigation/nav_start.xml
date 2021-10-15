@@ -14,4 +14,9 @@
         android:name="uz.pdp.skandinav.ui.start.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" />
+    <fragment
+        android:id="@+id/inputDataFragment"
+        android:name="uz.pdp.skandinav.ui.start.InputDataFragment"
+        android:label="fragment_input_data"
+        tools:layout="@layout/fragment_input_data" />
 </navigation>

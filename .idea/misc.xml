@@ -6,12 +6,13 @@
         <entry key="../../../../layout/custom_preview.xml" value="0.21145833333333333" />
         <entry key="app/src/main/res/drawable/edittext_back.xml" value="0.13783783783783785" />
         <entry key="app/src/main/res/drawable/first_enter_btn_back.xml" value="0.13783783783783785" />
+        <entry key="app/src/main/res/drawable/ic_ghuman.xml" value="0.2125" />
         <entry key="app/src/main/res/drawable/ic_right_arrow.xml" value="0.13783783783783785" />
         <entry key="app/src/main/res/drawable/ic_sign_up_corner.xml" value="0.13783783783783785" />
         <entry key="app/src/main/res/font/fonts.xml" value="0.2265625" />
         <entry key="app/src/main/res/layout-v23/activity_main.xml" value="0.19635416666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.14" />
-        <entry key="app/src/main/res/layout/fragment_input_data.xml" value="0.12736486486486487" />
+        <entry key="app/src/main/res/layout/fragment_input_data.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.16" />
         <entry key="app/src/main/res/layout/fragment_start.xml" value="0.2" />
       </map>
