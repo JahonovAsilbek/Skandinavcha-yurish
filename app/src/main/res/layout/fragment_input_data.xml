@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -92,6 +92,203 @@
             app:size="small"
             app:start_text="70 cm" />
 
+
+        <com.gigamole.library.ShadowLayout
+            android:id="@+id/layout_speed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/layout_age"
+            app:layout_constraintTop_toBottomOf="@id/seekbar"
+            app:sl_shadow_angle="45"
+            app:sl_shadow_color="@color/main_blue"
+            app:sl_shadow_distance="5dp"
+            app:sl_shadow_radius="10dp"
+            app:sl_shadowed="true">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/linear_back">
+
+                <TextView
+                    android:id="@+id/title1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="Yurish\ntezligi"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/high"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Yuqori"
+                    android:textColor="#661464FF"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@id/normal"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/speed_car"
+                    app:layout_constraintTop_toBottomOf="@id/title1" />
+
+                <ImageView
+                    android:id="@+id/speed_car"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/ic_speed_high"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="@id/high"
+                    app:layout_constraintLeft_toRightOf="@id/high"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/high" />
+
+                <TextView
+                    android:id="@+id/normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Yuqori"
+                    android:textColor="#661464FF"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@id/slow"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/speed_human"
+                    app:layout_constraintTop_toBottomOf="@id/high" />
+
+                <ImageView
+                    android:id="@+id/speed_human"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/ic_speed_normal"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="@id/normal"
+                    app:layout_constraintLeft_toRightOf="@id/normal"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/normal" />
+
+                <TextView
+                    android:id="@+id/slow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Yuqori"
+                    android:textColor="#661464FF"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/speed_turtle"
+                    app:layout_constraintTop_toBottomOf="@id/normal" />
+
+                <ImageView
+                    android:id="@+id/speed_turtle"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/ic_speed_slow"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="@id/slow"
+                    app:layout_constraintLeft_toRightOf="@id/slow"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/slow" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.gigamole.library.ShadowLayout>
+
+
+        <com.gigamole.library.ShadowLayout
+            android:id="@+id/layout_age"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintLeft_toRightOf="@id/layout_speed"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/seekbar"
+            app:sl_shadow_angle="45"
+            app:sl_shadow_color="@color/main_blue"
+            app:sl_shadow_distance="5dp"
+            app:sl_shadow_radius="10dp"
+            app:sl_shadowed="true">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/linear_back" />
+
+        </com.gigamole.library.ShadowLayout>
+
+        <LinearLayout
+            android:id="@+id/layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/card_stroke"
+            android:elevation="3dp"
+            android:orientation="vertical"
+            android:padding="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_speed">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Optimal tayoq uzunligi"
+                android:textColor="@color/main_text_color"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/stick_height_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/textview_back"
+                android:fontFamily="@font/montserrat_medium"
+                android:gravity="center"
+                android:paddingStart="20dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="5dp"
+                android:text="82 cm"
+                android:textColor="@android:color/white"
+                android:textSize="25sp" />
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/transparent"
+            android:padding="10dp"
+            android:src="@drawable/ic_about"
+            app:layout_constraintBottom_toBottomOf="@id/layout"
+            app:layout_constraintLeft_toRightOf="@id/layout"
+            app:layout_constraintTop_toTopOf="@id/layout" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.core.widget.NestedScrollView>
+</ScrollView>

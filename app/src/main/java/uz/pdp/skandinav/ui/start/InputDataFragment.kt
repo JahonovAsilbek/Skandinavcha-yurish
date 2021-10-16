@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import uz.pdp.skandinav.databinding.FragmentInputDataBinding
 
+
 class InputDataFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,9 +35,11 @@ class InputDataFragment : Fragment() {
         val slider = binding.seekbar
         slider.positionListener = { pos ->
             val height = min + (total * pos).toInt()
+            val heightStick = (height * 0.68).toInt()
             slider.bubbleText = height.toString()
             binding.height.text = "Bo'yingiz\n$height"
-            binding.stickHeight.text = "Tayoq\nuzunligi\n${(height * 0.68).toInt()}"
+            binding.stickHeight.text = "Tayoq\nuzunligi\n${heightStick}"
+            binding.stickHeight2.text = "$heightStick cm"
         }
         slider.position = 0.5f
         slider.startText = "$min"
