@@ -14,4 +14,13 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+
+    <string name="about_app">
+        \nIlova yosh bolalar orasida sog\'lom turmush-tarzini targ\'ib qiladi.\n\n
+        Ushbu ilova <font color='#1464FF'>Phoenix inc</font> tomonidan ishlab chiqilgan.\n
+Biz bilan bog\'lanish\n
+asilbekjahonov2001@gmail.com\n
++99890 992 08 50\n\n
+
+    Ilovadan foydalanayotganingiz uchun minnatdorchilik bildiramiz.</string>
 </resources>

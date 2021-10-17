@@ -9,13 +9,18 @@
         android:id="@+id/nav_home"
         android:name="uz.phoenix.skandinav.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            app:popUpTo="@id/nav_home"
+            android:id="@+id/action_nav_home_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="uz.phoenix.skandinav.ui.gallery.GalleryFragment"
+        android:id="@+id/settingsFragment"
+        android:name="uz.phoenix.skandinav.ui.settings.SettingsFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_settings" />
 
     <fragment
         android:id="@+id/nav_slideshow"
