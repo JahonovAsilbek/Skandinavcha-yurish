@@ -1,6 +1,17 @@
 <resources>
     <string name="app_name">Skandinavcha Yurish</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="sign_up_title">Ilovani ishga tushirish uchun <font color='#1464FF'>\nRo\'yxatdan o\'ting</font></string>
+    <string name="info_dialog_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nunc, nam tempor venenatis amet, eleifend suspendisse tempor dictum. Augue ipsum, lorem convallis egestas aliquam nascetur pellentesque felis vestibulum. Amet, cras lorem neque dolor quis etiam tempor. Fringilla odio purus, id elementum egestas risus massa odio bibendum. Risus, quis malesuada luctus lectus nulla pretium venenatis proin condimentum. Vitae tempor ut nisi suspendisse eu. Sit orci, quam nullam tincidunt enim. Tortor nibh porttitor vel urna. Vestibulum urna, aliquam nam ut odio nulla sit vivamus sem. Faucibus at egestas ullamcorper convallis iaculis massa augue at condimentum. Elementum fringilla mauris sapien lacinia e</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
 </resources>

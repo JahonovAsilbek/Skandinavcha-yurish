@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="false"
-    tools:context=".ui.start.InputDataFragment">
+    android:fitsSystemWindows="false">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -119,8 +117,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/montserrat_bold"
-                    android:text="Yurish\ntezligi"
                     android:gravity="center"
+                    android:text="Yurish\ntezligi"
                     android:textColor="@color/main_text_color"
                     android:textSize="18sp"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -133,24 +131,24 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:clickable="true"
                     android:fontFamily="@font/montserrat_medium"
                     android:text="Yuqori"
                     android:textColor="#661464FF"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toTopOf="@id/normal"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@id/speed_car"
+                    app:layout_constraintRight_toLeftOf="@id/speed_picker_high"
                     app:layout_constraintTop_toBottomOf="@id/title1" />
 
                 <ImageView
-                    android:id="@+id/speed_car"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="15dp"
-                    android:src="@drawable/ic_speed_high"
+                    android:id="@+id/speed_picker_high"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_age_picker"
                     android:visibility="invisible"
                     app:layout_constraintBottom_toBottomOf="@id/high"
-                    app:layout_constraintLeft_toRightOf="@id/high"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="@id/high" />
 
@@ -160,24 +158,24 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:clickable="true"
                     android:fontFamily="@font/montserrat_medium"
-                    android:text="Yuqori"
+                    android:text="O'rtacha"
                     android:textColor="#661464FF"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toTopOf="@id/slow"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@id/speed_human"
+                    app:layout_constraintRight_toLeftOf="@id/speed_picker_normal"
                     app:layout_constraintTop_toBottomOf="@id/high" />
 
                 <ImageView
-                    android:id="@+id/speed_human"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="15dp"
-                    android:src="@drawable/ic_speed_normal"
+                    android:id="@+id/speed_picker_normal"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_age_picker"
                     android:visibility="invisible"
                     app:layout_constraintBottom_toBottomOf="@id/normal"
-                    app:layout_constraintLeft_toRightOf="@id/normal"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="@id/normal" />
 
@@ -187,25 +185,25 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:clickable="true"
                     android:fontFamily="@font/montserrat_medium"
-                    android:text="Yuqori"
+                    android:text="Sekin"
                     android:textColor="#661464FF"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@id/speed_turtle"
+                    app:layout_constraintRight_toLeftOf="@id/speed_picker_slow"
                     app:layout_constraintTop_toBottomOf="@id/normal" />
 
                 <ImageView
-                    android:id="@+id/speed_turtle"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="15dp"
-                    android:src="@drawable/ic_speed_slow"
+                    android:id="@+id/speed_picker_slow"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_age_picker"
                     android:visibility="invisible"
                     app:layout_constraintBottom_toBottomOf="@id/slow"
-                    app:layout_constraintLeft_toRightOf="@id/slow"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="@id/slow" />
 
@@ -241,10 +239,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center"
                     android:text="Yoshni\ntanlang"
                     android:textColor="@color/main_text_color"
                     android:textSize="18sp"
-                    android:gravity="center"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -254,6 +252,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:clickable="true"
                     android:fontFamily="@font/montserrat_medium"
                     android:text="7-8 yosh"
                     android:textColor="#661464FF"
@@ -263,20 +263,42 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/title2" />
 
+                <ImageView
+                    android:id="@+id/age_picker_7"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_age_picker"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="@id/age7"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/age7" />
+
                 <TextView
                     android:id="@+id/age9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="20dp"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:clickable="true"
                     android:fontFamily="@font/montserrat_medium"
-                    android:text="7-8 yosh"
+                    android:text="9-10 yosh"
                     android:textColor="#661464FF"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/age7" />
+
+                <ImageView
+                    android:id="@+id/age_picker_9"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_age_picker"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="@id/age9"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/age9" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -326,6 +348,7 @@
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/info"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="10dp"

@@ -16,4 +16,24 @@
         <item name="android:windowTranslucentNavigation">true</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
     </style>
+
+    <style name="RoundedCornersDialog" parent="@style/Theme.MaterialComponents.Dialog">
+        <item name="dialogCornerRadius">12dp</item>
+        <item name="android:solidColor">#00000000</item>
+
+    </style>
+
+    <style name="Theme.Skandinav.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Skandinav.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" >
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+    </style>
+    <style name="Theme.Skandinav.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" >
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+    </style>
 </resources>
