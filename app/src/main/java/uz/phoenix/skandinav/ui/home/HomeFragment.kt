@@ -25,6 +25,7 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         openDrawer()
+        popBackStack()
 
         return binding.root
     }
@@ -32,7 +33,18 @@ class HomeFragment : Fragment() {
     private fun openDrawer() {
         binding.drawerMenu.setOnClickListener {
             (activity as MainActivity).openDrawer()
+            (activity as MainActivity).setDataToDrawer()
         }
+    }
+
+    private fun popBackStack() {
+        val callback: OnBackPressedCallback =
+            object : OnBackPressedCallback(true /* enabled by default */) {
+                override fun handleOnBackPressed() {
+                    requireActivity().finish()
+                }
+            }
+        requireActivity().onBackPressedDispatcher.addCallback(callback)
     }
 
 

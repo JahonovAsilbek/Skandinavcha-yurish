@@ -11,33 +11,19 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/back"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/back_btn_background"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?selectableItemBackgroundBorderless"
-        android:src="@drawable/ic_left_arrow"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image_circle"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:src="@drawable/img1"
+        app:civ_border_color="@color/main_blue"
+        app:civ_border_width="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/img1"
-        android:layout_marginTop="35dp"
-        app:civ_border_color="@color/main_blue"
-        app:civ_border_width="1dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/back" />
-
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/name_drawer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -45,13 +31,13 @@
         android:text="Your name"
         android:textColor="@color/main_text_color"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@id/surname"
-        app:layout_constraintLeft_toRightOf="@id/profile_image"
-        app:layout_constraintTop_toTopOf="@id/profile_image"
+        app:layout_constraintBottom_toTopOf="@id/surname_drawer"
+        app:layout_constraintLeft_toRightOf="@id/profile_image_circle"
+        app:layout_constraintTop_toTopOf="@id/profile_image_circle"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
-        android:id="@+id/surname"
+        android:id="@+id/surname_drawer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -59,9 +45,9 @@
         android:text="surname"
         android:textColor="@color/main_text_color"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@id/profile_image"
-        app:layout_constraintLeft_toRightOf="@id/profile_image"
-        app:layout_constraintTop_toBottomOf="@id/name" />
+        app:layout_constraintBottom_toBottomOf="@id/profile_image_circle"
+        app:layout_constraintLeft_toRightOf="@id/profile_image_circle"
+        app:layout_constraintTop_toBottomOf="@id/name_drawer" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

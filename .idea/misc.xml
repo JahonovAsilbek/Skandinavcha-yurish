@@ -18,6 +18,7 @@
         <entry key="app/src/main/res/drawable/ic_left_arrow.xml" value="0.2125" />
         <entry key="app/src/main/res/drawable/ic_menu_camera.xml" value="0.2125" />
         <entry key="app/src/main/res/drawable/ic_profile_image.xml" value="0.2125" />
+        <entry key="app/src/main/res/drawable/ic_profile_img.xml" value="0.18888888888888888" />
         <entry key="app/src/main/res/drawable/ic_right_arrow.xml" value="0.13783783783783785" />
         <entry key="app/src/main/res/drawable/ic_sign_up_corner.xml" value="0.13783783783783785" />
         <entry key="app/src/main/res/drawable/ic_speed_high.xml" value="0.2125" />
@@ -34,11 +35,12 @@
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_input_data.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_start.xml" value="0.2" />
         <entry key="app/src/main/res/layout/info_dialog.xml" value="0.25" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.2" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/drawer_menu.xml" value="0.17453703703703705" />
         <entry key="app/src/main/res/menu/main.xml" value="0.17453703703703705" />
       </map>
     </option>

@@ -7,11 +7,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import phoenix.skandinav.R
 import phoenix.skandinav.databinding.FragmentInputDataBinding
 import phoenix.skandinav.databinding.InfoDialogBinding
 import uz.phoenix.skandinav.MainActivity
+import uz.phoenix.skandinav.database.UserDatabase
+import uz.phoenix.skandinav.database.entities.UserData
 
 
 class InputDataFragment : Fragment() {
@@ -43,8 +46,24 @@ class InputDataFragment : Fragment() {
 
     private fun continueClick() {
         binding.continueBtn.setOnClickListener {
-            startActivity(Intent(activity, MainActivity::class.java))
-            requireActivity().finish()
+            if (height != 120) {
+                if (speed.isNotEmpty()) {
+                    if (age.isNotEmpty()) {
+                        val userData =
+                            UserData(height.toString(), speed, age, heightStick.toString())
+                        UserDatabase.Get.getUserDatabase().getDao().insertUserData(userData)
+
+                        startActivity(Intent(activity, MainActivity::class.java))
+                        requireActivity().finish()
+                    } else Toast.makeText(binding.root.context, "Yoshni tanlang", Toast.LENGTH_LONG)
+                        .show()
+                } else Toast.makeText(
+                    binding.root.context,
+                    "Yurish tezligini tanlang",
+                    Toast.LENGTH_LONG
+                ).show()
+            } else Toast.makeText(binding.root.context, "Bo'yingizni tanlang", Toast.LENGTH_LONG)
+                .show()
         }
     }
 
@@ -61,19 +80,18 @@ class InputDataFragment : Fragment() {
         }
     }
 
-    @SuppressLint("ResourceAsColor")
     private fun ageClick() {
         binding.age7.setOnClickListener {
             clearAgeVisibility()
-            binding.age7.setTextColor(R.color.main_blue)
+            binding.age7.setTextColor(resources.getColor(R.color.main_blue))
             binding.agePicker7.visibility = View.VISIBLE
-            age = "7"
+            age = "7-8 yosh"
         }
         binding.age9.setOnClickListener {
             clearAgeVisibility()
-            binding.age9.setTextColor(R.color.main_blue)
+            binding.age9.setTextColor(resources.getColor(R.color.main_blue))
             binding.agePicker9.visibility = View.VISIBLE
-            age = "9"
+            age = "9-10 yosh"
         }
     }
 
@@ -82,32 +100,31 @@ class InputDataFragment : Fragment() {
 
         binding.high.setOnClickListener {
             clearSpeedVisibility()
-            binding.high.setTextColor(R.color.main_blue)
+            binding.high.setTextColor(resources.getColor(R.color.main_blue))
             binding.speedPickerHigh.visibility = View.VISIBLE
-            speed = "high"
+            speed = "Yuqori"
         }
 
         binding.normal.setOnClickListener {
             clearSpeedVisibility()
-            binding.normal.setTextColor(R.color.main_blue)
+            binding.normal.setTextColor(resources.getColor(R.color.main_blue))
             binding.speedPickerNormal.visibility = View.VISIBLE
-            speed = "high"
+            speed = "O'rtacha"
         }
 
         binding.slow.setOnClickListener {
             clearSpeedVisibility()
-            binding.slow.setTextColor(R.color.main_blue)
+            binding.slow.setTextColor(resources.getColor(R.color.main_blue))
             binding.speedPickerSlow.visibility = View.VISIBLE
-            speed = "high"
+            speed = "Sekin"
         }
 
     }
 
-    @SuppressLint("ResourceAsColor")
     private fun clearSpeedVisibility() {
-        binding.high.setTextColor(R.color.main_blue_40)
-        binding.normal.setTextColor(R.color.main_blue_40)
-        binding.high.setTextColor(R.color.main_blue_40)
+        binding.high.setTextColor(resources.getColor(R.color.main_blue_40))
+        binding.normal.setTextColor(resources.getColor(R.color.main_blue_40))
+        binding.high.setTextColor(resources.getColor(R.color.main_blue_40))
         binding.speedPickerHigh.visibility = View.INVISIBLE
         binding.speedPickerNormal.visibility = View.INVISIBLE
         binding.speedPickerSlow.visibility = View.INVISIBLE
@@ -115,8 +132,8 @@ class InputDataFragment : Fragment() {
 
     @SuppressLint("ResourceAsColor")
     private fun clearAgeVisibility() {
-        binding.age7.setTextColor(R.color.main_blue_40)
-        binding.age9.setTextColor(R.color.main_blue_40)
+        binding.age7.setTextColor(resources.getColor(R.color.main_blue_40))
+        binding.age9.setTextColor(resources.getColor(R.color.main_blue_40))
         binding.agePicker7.visibility = View.INVISIBLE
         binding.agePicker9.visibility = View.INVISIBLE
     }

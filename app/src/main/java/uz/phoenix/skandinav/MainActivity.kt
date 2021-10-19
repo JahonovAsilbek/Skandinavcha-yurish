@@ -1,9 +1,11 @@
 package uz.phoenix.skandinav
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.Gravity
 import android.view.Window
 import android.view.WindowManager
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -12,12 +14,16 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
+import de.hdodenhof.circleimageview.CircleImageView
 import phoenix.skandinav.R
 import phoenix.skandinav.databinding.ActivityMainBinding
 import phoenix.skandinav.databinding.InfoDialogBinding
+import uz.phoenix.skandinav.database.UserDatabase
+import uz.phoenix.skandinav.database.entities.User
+import uz.phoenix.skandinav.ui.settings.SettingsFragment
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), SettingsFragment.ProfileChangeListener {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
@@ -37,10 +43,28 @@ class MainActivity : AppCompatActivity() {
         navController = findNavController(R.id.nav_host_fragment_content_main)
         navView.setupWithNavController(navController)
 
-        backClick()
         infoClick()
         settingsClick()
+        setDataToDrawer()
+    }
 
+    fun setDataToDrawer() {
+        val profileImage = findViewById<CircleImageView>(R.id.profile_image_circle)
+        val name = findViewById<TextView>(R.id.name_drawer)
+        val surname = findViewById<TextView>(R.id.surname_drawer)
+        val user = UserDatabase.Get.getUserDatabase().getDao().getUser()
+
+        if (user != null) {
+            if (user.imagePath != null) {
+                profileImage.setImageURI(
+                    Uri.parse(
+                        user.imagePath
+                    )
+                )
+            }
+            name.text = user.name
+            surname.text = user.surname
+        }
     }
 
     private fun settingsClick() {
@@ -71,13 +95,20 @@ class MainActivity : AppCompatActivity() {
         binding.drawerLayout.openDrawer(Gravity.START)
     }
 
-    private fun backClick() {
-        binding.layout.back.setOnClickListener {
-            binding.drawerLayout.closeDrawers()
-        }
-    }
-
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp()
+    }
+
+    override fun dataChangeListener(user: User) {
+        val profileImage = findViewById<CircleImageView>(R.id.profile_image_circle)
+        val name = findViewById<TextView>(R.id.name_drawer)
+        val surname = findViewById<TextView>(R.id.surname)
+        profileImage.setImageURI(
+            Uri.parse(
+                user.imagePath
+            )
+        )
+        name.text = user.name
+        surname.text = user.surname
     }
 }

@@ -21,7 +21,7 @@ interface UserDao {
     // funs for user datas
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(userData: UserData)
+    fun insertUserData(userData: UserData)
 
     @Update
     fun updateUserData(userData: UserData)
