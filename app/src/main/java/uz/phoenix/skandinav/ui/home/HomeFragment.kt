@@ -1,13 +1,15 @@
 package uz.phoenix.skandinav.ui.home
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import phoenix.skandinav.R
+import phoenix.skandinav.databinding.ExitDialogBinding
 import phoenix.skandinav.databinding.FragmentHomeBinding
 import uz.phoenix.skandinav.MainActivity
 
@@ -41,7 +43,18 @@ class HomeFragment : Fragment() {
         val callback: OnBackPressedCallback =
             object : OnBackPressedCallback(true /* enabled by default */) {
                 override fun handleOnBackPressed() {
-                    requireActivity().finish()
+                    val dialog =
+                        AlertDialog.Builder(binding.root.context, R.style.RoundedCornersDialog)
+                    val alertDialog = dialog.create()
+                    val view = ExitDialogBinding.inflate(layoutInflater)
+                    view.cancel.setOnClickListener {
+                        alertDialog.cancel()
+                    }
+                    view.exit.setOnClickListener {
+                        requireActivity().finish()
+                    }
+                    alertDialog.setView(view.root)
+                    alertDialog.show()
                 }
             }
         requireActivity().onBackPressedDispatcher.addCallback(callback)
