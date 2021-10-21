@@ -14,6 +14,12 @@
             app:popUpTo="@id/nav_home"
             android:id="@+id/action_nav_home_to_settingsFragment"
             app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_showUserDataFragment"
+            app:destination="@id/showUserDataFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_monthFragment"
+            app:destination="@id/monthFragment" />
     </fragment>
 
     <fragment
@@ -27,4 +33,22 @@
         android:name="uz.phoenix.skandinav.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/showUserDataFragment"
+        android:name="uz.phoenix.skandinav.ui.settings.ShowUserDataFragment"
+        android:label="fragment_show_user_data"
+        tools:layout="@layout/fragment_show_user_data" >
+        <action
+            android:id="@+id/action_showUserDataFragment_to_inputDataFragment2"
+            app:destination="@id/inputDataFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/inputDataFragment2"
+        android:name="uz.phoenix.skandinav.ui.start.InputDataFragment"
+        android:label="InputDataFragment" />
+    <fragment
+        android:id="@+id/monthFragment"
+        android:name="uz.phoenix.skandinav.ui.main.month.MonthFragment"
+        android:label="fragment_month"
+        tools:layout="@layout/fragment_month" />
 </navigation>

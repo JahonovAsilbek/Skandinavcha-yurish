@@ -3,10 +3,12 @@ package uz.phoenix.skandinav.database.entities
 import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity
-class UserData {
-    @PrimaryKey
+class UserData : Serializable {
+    @PrimaryKey()
+    var id: Int = 0
     var height: String = ""
     var speed: String? = null
     var age: String? = null

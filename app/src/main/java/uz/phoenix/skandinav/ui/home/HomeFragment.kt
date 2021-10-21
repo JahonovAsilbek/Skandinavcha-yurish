@@ -1,13 +1,13 @@
 package uz.phoenix.skandinav.ui.home
 
 import android.app.AlertDialog
-import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import phoenix.skandinav.R
 import phoenix.skandinav.databinding.ExitDialogBinding
 import phoenix.skandinav.databinding.FragmentHomeBinding
@@ -28,8 +28,22 @@ class HomeFragment : Fragment() {
 
         openDrawer()
         popBackStack()
+        userDataClick()
+        dailyClick()
 
         return binding.root
+    }
+
+    private fun dailyClick() {
+        binding.daily.setOnClickListener {
+            findNavController().navigate(R.id.monthFragment)
+        }
+    }
+
+    private fun userDataClick() {
+        binding.myData.setOnClickListener {
+            findNavController().navigate(R.id.showUserDataFragment)
+        }
     }
 
     private fun openDrawer() {

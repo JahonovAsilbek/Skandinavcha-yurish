@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import phoenix.skandinav.R
 import phoenix.skandinav.databinding.FragmentInputDataBinding
 import phoenix.skandinav.databinding.InfoDialogBinding
@@ -19,8 +20,13 @@ import uz.phoenix.skandinav.database.entities.UserData
 
 class InputDataFragment : Fragment() {
 
+    private var userData: UserData? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        arguments.let {
+            userData = it?.getSerializable("userData") as UserData?
+        }
     }
 
     lateinit var binding: FragmentInputDataBinding
@@ -35,6 +41,9 @@ class InputDataFragment : Fragment() {
     ): View {
         binding = FragmentInputDataBinding.inflate(layoutInflater)
 
+        if (userData != null) {
+            loadDataToView()
+        }
         setSeekbar()
         speedClick()
         ageClick()
@@ -44,17 +53,65 @@ class InputDataFragment : Fragment() {
         return binding.root
     }
 
+    private fun loadDataToView() {
+        binding.apply {
+            seekbar.position = (userData!!.height.toFloat() - 100) / 100
+            when (userData!!.speed) {
+                "Yuqori" -> {
+                    high.setTextColor(resources.getColor(R.color.main_blue))
+                    speedPickerHigh.visibility = View.VISIBLE
+                    speed = "Yuqori"
+                }
+                "O'rtacha" -> {
+                    normal.setTextColor(resources.getColor(R.color.main_blue))
+                    speedPickerNormal.visibility = View.VISIBLE
+                    speed = "O'rtacha"
+                }
+                "Sekin" -> {
+                    slow.setTextColor(resources.getColor(R.color.main_blue))
+                    speedPickerSlow.visibility = View.VISIBLE
+                    speed = "Sekin"
+                }
+            }
+
+            when (userData!!.age) {
+                "7-8 yosh" -> {
+                    age7.setTextColor(resources.getColor(R.color.main_blue))
+                    agePicker7.visibility = View.VISIBLE
+                    age = "7-8 yosh"
+                }
+                "9-10 yosh" -> {
+                    age7.setTextColor(resources.getColor(R.color.main_blue))
+                    agePicker7.visibility = View.VISIBLE
+                    age = "9-10 yosh"
+                }
+            }
+            stickHeight.text = (userData!!.height.toInt() * 0.68).toString()
+            stickHeight2.text = (userData!!.height.toInt() * 0.68).toString()
+            continueTitle.text = "O'zgartirish"
+            heightStick = (userData!!.height.toInt() * 0.68).toInt()
+        }
+        height = userData!!.height.toInt()
+    }
+
     private fun continueClick() {
         binding.continueBtn.setOnClickListener {
             if (height != 120) {
                 if (speed.isNotEmpty()) {
                     if (age.isNotEmpty()) {
-                        val userData =
-                            UserData(height.toString(), speed, age, heightStick.toString())
-                        UserDatabase.Get.getUserDatabase().getDao().insertUserData(userData)
+                        if (userData == null) {
+                            val userData =
+                                UserData(height.toString(), speed, age, heightStick.toString())
+                            UserDatabase.Get.getUserDatabase().getDao().insertUserData(userData)
 
-                        startActivity(Intent(activity, MainActivity::class.java))
-                        requireActivity().finish()
+                            startActivity(Intent(activity, MainActivity::class.java))
+                            requireActivity().finish()
+                        } else {
+                            val userData =
+                                UserData(height.toString(), speed, age, heightStick.toString())
+                            UserDatabase.Get.getUserDatabase().getDao().updateUserData(userData)
+                            findNavController().popBackStack()
+                        }
                     } else Toast.makeText(binding.root.context, "Yoshni tanlang", Toast.LENGTH_LONG)
                         .show()
                 } else Toast.makeText(
