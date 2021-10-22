@@ -50,5 +50,41 @@
         android:id="@+id/monthFragment"
         android:name="uz.phoenix.skandinav.ui.main.month.MonthFragment"
         android:label="fragment_month"
-        tools:layout="@layout/fragment_month" />
+        tools:layout="@layout/fragment_month" >
+        <action
+            android:id="@+id/action_monthFragment_to_trainingListFragment"
+            app:destination="@id/trainingListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/trainingListFragment"
+        android:name="uz.phoenix.skandinav.ui.main.task.TrainingListFragment"
+        android:label="fragment_training_list"
+        tools:layout="@layout/fragment_training_list" >
+        <action
+            android:id="@+id/action_trainingListFragment_to_trainingFragment"
+            app:destination="@id/trainingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/trainingFragment"
+        android:name="uz.phoenix.skandinav.ui.main.task.TrainingFragment"
+        android:label="fragment_training"
+        tools:layout="@layout/fragment_training" >
+        <action
+            android:id="@+id/action_trainingFragment_to_entranceFragment"
+            app:destination="@id/entranceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/entranceFragment"
+        android:name="uz.phoenix.skandinav.ui.main.entrance.EntranceFragment"
+        android:label="fragment_entrance"
+        tools:layout="@layout/fragment_entrance" >
+        <action
+            android:id="@+id/action_entranceFragment_to_theoreticalInfoFragment"
+            app:destination="@id/theoreticalInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/theoreticalInfoFragment"
+        android:name="uz.phoenix.skandinav.ui.main.entrance.TheoreticalInfoFragment"
+        android:label="fragment_theoretical_info"
+        tools:layout="@layout/fragment_theoretical_info" />
 </navigation>

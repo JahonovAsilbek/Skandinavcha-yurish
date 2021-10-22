@@ -8,9 +8,11 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import phoenix.skandinav.R
 import phoenix.skandinav.databinding.FragmentMonthBinding
 import uz.phoenix.skandinav.database.entities.Month
 import uz.phoenix.skandinav.ui.main.month.adapters.MonthAdapter
+import uz.phoenix.skandinav.ui.main.task.adapters.TrainingAdapter
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -57,6 +59,9 @@ class MonthFragment : Fragment() {
         adapter.onMonthClick = object : MonthAdapter.OnMonthClick {
             override fun onClick(month: Month) {
                 Toast.makeText(binding.root.context, "${month.name}", Toast.LENGTH_SHORT).show()
+                val bundle = Bundle()
+                bundle.putSerializable("month", month)
+                findNavController().navigate(R.id.trainingListFragment, bundle)
             }
         }
     }

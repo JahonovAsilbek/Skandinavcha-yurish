@@ -30,7 +30,7 @@ class StartFragment : Fragment() {
             val handler = Handler(Looper.getMainLooper()).postDelayed({
                 startActivity(Intent(requireActivity(), MainActivity::class.java))
                 requireActivity().finish()
-            }, 3000)
+            }, 1500)
         }
         return binding.root
     }

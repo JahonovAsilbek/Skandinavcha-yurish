@@ -5,10 +5,15 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import uz.phoenix.skandinav.database.daos.UserDao
+import uz.phoenix.skandinav.database.entities.MainPart
 import uz.phoenix.skandinav.database.entities.User
 import uz.phoenix.skandinav.database.entities.UserData
 
-@Database(entities = [User::class, UserData::class], version = 1, exportSchema = false)
+@Database(
+    entities = [User::class, UserData::class, MainPart::class],
+    version = 1,
+    exportSchema = false
+)
 abstract class UserDatabase : RoomDatabase() {
     abstract fun getDao(): UserDao
 

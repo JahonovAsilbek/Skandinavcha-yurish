@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="false"
-    tools:context="uz.phoenix.skandinav.ui.main.month.MonthFragment">
+    tools:context="uz.phoenix.skandinav.ui.main.task.TrainingListFragment">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -93,10 +93,10 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv"
-            android:overScrollMode="never"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="15dp"
+            android:overScrollMode="never"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
             tools:listitem="@layout/item_month" />
