@@ -72,4 +72,8 @@ dependencies {
 
     // runtime permission
     implementation 'com.github.florent37:runtime-permission-kotlin:1.1.2'
+
+    //youtube
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
+
 }

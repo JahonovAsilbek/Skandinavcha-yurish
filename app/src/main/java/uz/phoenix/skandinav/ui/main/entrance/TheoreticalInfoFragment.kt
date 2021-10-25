@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import phoenix.skandinav.databinding.FragmentTheoreticalInfoBinding
 import uz.phoenix.skandinav.database.entities.Training
 
@@ -34,6 +35,10 @@ class TheoreticalInfoFragment : Fragment() {
             if (isChecked) {
                 Toast.makeText(binding.root.context, "Updated", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        binding.back.setOnClickListener {
+            findNavController().popBackStack()
         }
 
         return binding.root

@@ -76,7 +76,7 @@ class TrainingListFragment : Fragment() {
                     i,
                     "${i + 1}-mashg'ulot",
                     null,
-                    null,
+                    "HCfPhZQz2CE",
                     null,
                     null,
                     null,

@@ -81,10 +81,18 @@
         <action
             android:id="@+id/action_entranceFragment_to_theoreticalInfoFragment"
             app:destination="@id/theoreticalInfoFragment" />
+        <action
+            android:id="@+id/action_entranceFragment_to_videoFragment"
+            app:destination="@id/videoFragment" />
     </fragment>
     <fragment
         android:id="@+id/theoreticalInfoFragment"
         android:name="uz.phoenix.skandinav.ui.main.entrance.TheoreticalInfoFragment"
         android:label="fragment_theoretical_info"
         tools:layout="@layout/fragment_theoretical_info" />
+    <fragment
+        android:id="@+id/videoFragment"
+        android:name="uz.phoenix.skandinav.ui.main.entrance.VideoFragment"
+        android:label="fragment_video"
+        tools:layout="@layout/fragment_video" />
 </navigation>

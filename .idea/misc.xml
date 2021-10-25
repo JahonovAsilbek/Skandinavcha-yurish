@@ -22,6 +22,8 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.17435897435897435" />
         <entry key="app/src/main/res/drawable/ic_left_arrow.xml" value="0.2125" />
         <entry key="app/src/main/res/drawable/ic_lock.xml" value="0.17435897435897435" />
+        <entry key="app/src/main/res/drawable/ic_logo_rounded.xml" value="0.2125" />
+        <entry key="app/src/main/res/drawable/ic_logo_square.xml" value="0.2125" />
         <entry key="app/src/main/res/drawable/ic_menu_camera.xml" value="0.2125" />
         <entry key="app/src/main/res/drawable/ic_profile_image.xml" value="0.2125" />
         <entry key="app/src/main/res/drawable/ic_profile_img.xml" value="0.18888888888888888" />
@@ -51,6 +53,7 @@
         <entry key="app/src/main/res/layout/fragment_theoretical_info.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_training.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_training_list.xml" value="0.16111111111111112" />
+        <entry key="app/src/main/res/layout/fragment_video.xml" value="0.25" />
         <entry key="app/src/main/res/layout/info_dialog.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_month.xml" value="0.25" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.2" />

@@ -42,9 +42,9 @@ class EntranceFragment : Fragment() {
         }
 
         binding.video.setOnClickListener {
-//            val bundle = Bundle()
-//            bundle.putSerializable("training", training)
-//            findNavController().navigate(R.id.theoreticalInfoFragment, bundle)
+            val bundle = Bundle()
+            bundle.putSerializable("training", training)
+            findNavController().navigate(R.id.videoFragment, bundle)
         }
 
         binding.tasks.setOnClickListener {
