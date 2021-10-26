@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import phoenix.skandinav.R
 import phoenix.skandinav.databinding.FragmentTrainingListBinding
+import uz.phoenix.skandinav.database.entities.MainPart
 import uz.phoenix.skandinav.database.entities.Month
 import uz.phoenix.skandinav.database.entities.Training
 import uz.phoenix.skandinav.ui.main.task.adapters.TrainingAdapter
@@ -35,7 +36,7 @@ class TrainingListFragment : Fragment() {
     ): View {
         binding = FragmentTrainingListBinding.inflate(layoutInflater)
 
-        loadData()
+        loadEntranceData()
         loadAdapter()
         itemClick()
         backClick()
@@ -65,7 +66,7 @@ class TrainingListFragment : Fragment() {
         binding.rv.adapter = adapter
     }
 
-    private fun loadData() {
+    private fun loadEntranceData() {
         trainingList = ArrayList()
 //        trainingList = TrainingDatabase.Get.getTrainingDatabase().trainingDao().getTraining(month?.id!!)
         for (i in 0 until 12) {
@@ -79,12 +80,13 @@ class TrainingListFragment : Fragment() {
                     "HCfPhZQz2CE",
                     null,
                     null,
+                    "HCfPhZQz2CE",
                     null,
+                    "HCfPhZQz2CE",
                     null,
-                    null,
-                    null,
-                    null,
+                    "HCfPhZQz2CE",
                     true,
+                    null,
                     true
                 )
             )

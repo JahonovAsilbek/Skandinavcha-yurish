@@ -20,6 +20,7 @@ class Training : Serializable {
     var task3Text: String? = null
     var task3Video: String? = null
     var isVideoOpened: Boolean? = null
+    var endPart: String? = null
     var isFinished: Boolean? = null
 
     constructor(
@@ -36,6 +37,7 @@ class Training : Serializable {
         task3Text: String?,
         task3Video: String?,
         isVideoOpened: Boolean?,
+        endPart: String?,
         isFinished: Boolean?
     ) {
         this.id = id
@@ -51,6 +53,7 @@ class Training : Serializable {
         this.task3Text = task3Text
         this.task3Video = task3Video
         this.isVideoOpened = isVideoOpened
+        this.endPart = endPart
         this.isFinished = isFinished
     }
 }

@@ -48,9 +48,9 @@ class EntranceFragment : Fragment() {
         }
 
         binding.tasks.setOnClickListener {
-//            val bundle = Bundle()
-//            bundle.putSerializable("training", training)
-//            findNavController().navigate(R.id.theoreticalInfoFragment, bundle)
+            val bundle = Bundle()
+            bundle.putSerializable("training", training)
+            findNavController().navigate(R.id.urmTasksFragment, bundle)
         }
 
         return binding.root

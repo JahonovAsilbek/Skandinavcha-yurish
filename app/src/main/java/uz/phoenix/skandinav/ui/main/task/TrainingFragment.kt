@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import phoenix.skandinav.R
 import phoenix.skandinav.databinding.FragmentTrainingBinding
+import uz.phoenix.skandinav.database.entities.MainPart
 import uz.phoenix.skandinav.database.entities.Training
 
 private const val ARG_PARAM1 = "training"
@@ -25,6 +26,7 @@ class TrainingFragment : Fragment() {
     }
 
     lateinit var binding: FragmentTrainingBinding
+    lateinit var mainPart: MainPart
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,6 +34,7 @@ class TrainingFragment : Fragment() {
     ): View {
         binding = FragmentTrainingBinding.inflate(layoutInflater)
 
+        loadMainPartData()
         loadDataToView()
         backClick()
 
@@ -43,19 +46,32 @@ class TrainingFragment : Fragment() {
 
         binding.mainPart.setOnClickListener {
             val bundle = Bundle()
-            bundle.putSerializable("training", training)
-//            findNavController().navigate(R.id.entranceFragment, bundle)
-            Toast.makeText(binding.root.context, "Main part", Toast.LENGTH_SHORT).show()
+            bundle.putSerializable("main_part", mainPart)
+            findNavController().navigate(R.id.mainPartFragment, bundle)
         }
 
         binding.endPart.setOnClickListener {
             val bundle = Bundle()
-            bundle.putSerializable("training", training)
-//            findNavController().navigate(R.id.entranceFragment, bundle)
-            Toast.makeText(binding.root.context, "End part", Toast.LENGTH_SHORT).show()
+            bundle.putSerializable("end_part", training)
+            findNavController().navigate(R.id.preparationPartFragment, bundle)
         }
 
         return binding.root
+    }
+
+    private fun loadMainPartData() {
+        mainPart = MainPart(
+            1,
+            training?.id,
+            "HCfPhZQz2CE",
+            null,
+            "HCfPhZQz2CE",
+            null,
+            "HCfPhZQz2CE",
+            null,
+            null,
+            null
+        )
     }
 
     private fun backClick() {

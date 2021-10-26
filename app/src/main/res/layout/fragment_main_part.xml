@@ -1,0 +1,110 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false"
+    tools:context="uz.phoenix.skandinav.ui.main.entrance.EntranceFragment">
+
+    <ImageView
+        android:id="@+id/corner1"
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_main_corner"
+        app:layout_constraintLeft_toRightOf="@id/guideline_40"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/corner2"
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        android:padding="40dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/training_corner"
+        app:layout_constraintLeft_toRightOf="@id/guideline_40"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/back"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/back_btn_background"
+        android:src="@drawable/ic_left_arrow"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/montserrat_extrabold"
+        android:gravity="center"
+        android:text="Asosiy qism"
+        android:textColor="@color/main_blue"
+        android:textSize="32sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/corner1" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/tasks"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/first_enter_btn_back"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Skandinav tayoqchasi\nyordamida mashqlar"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/games"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/first_enter_btn_back"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Harakatli o'yinlar"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tasks" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/walking"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/first_enter_btn_back"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Skandinavcha yurish"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/games" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

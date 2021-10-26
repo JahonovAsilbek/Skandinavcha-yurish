@@ -1,6 +1,5 @@
 package uz.phoenix.skandinav.ui.main.entrance
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,12 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import phoenix.skandinav.R
-import phoenix.skandinav.databinding.FragmentTheoreticalInfoBinding
+import phoenix.skandinav.databinding.FragmentUrmTasksBinding
 import uz.phoenix.skandinav.database.entities.Training
 
 private const val ARG_PARAM1 = "training"
 
-class TheoreticalInfoFragment : Fragment() {
+class UrmTasksFragment : Fragment() {
 
     private var training: Training? = null
 
@@ -24,22 +23,26 @@ class TheoreticalInfoFragment : Fragment() {
         }
     }
 
-    lateinit var binding: FragmentTheoreticalInfoBinding
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentTheoreticalInfoBinding.inflate(layoutInflater)
-
-        binding.checkbox.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked) {
-                binding.continueBtn.setBackgroundColor(resources.getColor(R.color.main_blue))
-            } else binding.continueBtn.setBackgroundColor(Color.parseColor("#C4C4C4"))
-        }
+        val binding = FragmentUrmTasksBinding.inflate(layoutInflater)
 
         binding.back.setOnClickListener {
             findNavController().popBackStack()
+        }
+
+        binding.preparationPart.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putSerializable("training", training)
+            findNavController().navigate(R.id.preparationPartFragment, bundle)
+        }
+
+        binding.urmTasks.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putSerializable("training", training)
+            findNavController().navigate(R.id.tasksListFragment, bundle)
         }
 
         return binding.root

@@ -72,6 +72,9 @@
         <action
             android:id="@+id/action_trainingFragment_to_entranceFragment"
             app:destination="@id/entranceFragment" />
+        <action
+            android:id="@+id/action_trainingFragment_to_mainPartFragment"
+            app:destination="@id/mainPartFragment" />
     </fragment>
     <fragment
         android:id="@+id/entranceFragment"
@@ -84,6 +87,9 @@
         <action
             android:id="@+id/action_entranceFragment_to_videoFragment"
             app:destination="@id/videoFragment" />
+        <action
+            android:id="@+id/action_entranceFragment_to_urmTasksFragment"
+            app:destination="@id/urmTasksFragment" />
     </fragment>
     <fragment
         android:id="@+id/theoreticalInfoFragment"
@@ -95,4 +101,45 @@
         android:name="uz.phoenix.skandinav.ui.main.entrance.VideoFragment"
         android:label="fragment_video"
         tools:layout="@layout/fragment_video" />
+    <fragment
+        android:id="@+id/urmTasksFragment"
+        android:name="uz.phoenix.skandinav.ui.main.entrance.UrmTasksFragment"
+        android:label="UrmTasksFragment" >
+        <action
+            android:id="@+id/action_urmTasksFragment_to_preparationPartFragment"
+            app:destination="@id/preparationPartFragment" />
+        <action
+            android:id="@+id/action_urmTasksFragment_to_tasksListFragment"
+            app:destination="@id/tasksListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/preparationPartFragment"
+        android:name="uz.phoenix.skandinav.ui.main.entrance.PreparationPartFragment"
+        android:label="PreparationPartFragment" />
+    <fragment
+        android:id="@+id/tasksListFragment"
+        android:name="uz.phoenix.skandinav.ui.main.entrance.TasksListFragment"
+        android:label="fragment_tasks_list"
+        tools:layout="@layout/fragment_tasks_list" >
+        <action
+            android:id="@+id/action_tasksListFragment_to_taskFragment"
+            app:destination="@id/taskFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskFragment"
+        android:name="uz.phoenix.skandinav.ui.main.entrance.TaskFragment"
+        android:label="TaskFragment" />
+    <fragment
+        android:id="@+id/mainPartFragment"
+        android:name="uz.phoenix.skandinav.ui.main.main.MainPartFragment"
+        android:label="MainPartFragment" >
+        <action
+            android:id="@+id/action_mainPartFragment_to_actionGameFragment"
+            app:destination="@id/actionGameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/actionGameFragment"
+        android:name="uz.phoenix.skandinav.ui.main.main.ActionGameFragment"
+        android:label="fragment_action_game"
+        tools:layout="@layout/fragment_action_game" />
 </navigation>
