@@ -17,7 +17,7 @@ import uz.phoenix.skandinav.database.entities.Training
 
 private const val ARG_PARAM1 = "training"
 private const val ARG_PARAM2 = "task_position"
-private const val ARG_PARAM3 = "training"
+private const val ARG_PARAM3 = "main_part"
 
 class TaskFragment : Fragment() {
 

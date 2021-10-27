@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import phoenix.skandinav.R
 import phoenix.skandinav.databinding.ExitDialogBinding
@@ -18,6 +19,7 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    lateinit var navOptions: NavOptions.Builder
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,6 +28,7 @@ class HomeFragment : Fragment() {
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
+        setNavigation()
         openDrawer()
         popBackStack()
         userDataClick()
@@ -34,15 +37,23 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
+    private fun setNavigation() {
+        navOptions = NavOptions.Builder()
+        navOptions.setEnterAnim(R.anim.enter_from_right)
+        navOptions.setPopEnterAnim(R.anim.enter_from_left)
+        navOptions.setExitAnim(R.anim.exit_to_left)
+        navOptions.setPopExitAnim(R.anim.exit_to_right)
+    }
+
     private fun dailyClick() {
         binding.daily.setOnClickListener {
-            findNavController().navigate(R.id.monthFragment)
+            findNavController().navigate(R.id.monthFragment, Bundle(), navOptions.build())
         }
     }
 
     private fun userDataClick() {
         binding.myData.setOnClickListener {
-            findNavController().navigate(R.id.showUserDataFragment)
+            findNavController().navigate(R.id.showUserDataFragment, Bundle(), navOptions.build())
         }
     }
 

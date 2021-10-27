@@ -48,13 +48,13 @@
         <entry key="app/src/main/res/layout/fragment_input_data.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_main_part.xml" value="0.12736486486486487" />
         <entry key="app/src/main/res/layout/fragment_month.xml" value="0.16111111111111112" />
-        <entry key="app/src/main/res/layout/fragment_preparation_part.xml" value="0.18229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_preparation_part.xml" value="0.12" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_show_user_data.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_start.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_task.xml" value="0.12" />
-        <entry key="app/src/main/res/layout/fragment_tasks_list.xml" value="0.16" />
+        <entry key="app/src/main/res/layout/fragment_tasks_list.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_theoretical_info.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_training.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_training_list.xml" value="0.16111111111111112" />

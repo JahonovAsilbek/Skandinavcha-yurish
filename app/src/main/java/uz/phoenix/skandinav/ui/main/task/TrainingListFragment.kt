@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import phoenix.skandinav.R
 import phoenix.skandinav.databinding.FragmentTrainingListBinding
@@ -18,6 +19,7 @@ private const val ARG_PARAM1 = "month"
 class TrainingListFragment : Fragment() {
 
     private var month: Month? = null
+    lateinit var navOptions: NavOptions.Builder
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +38,7 @@ class TrainingListFragment : Fragment() {
     ): View {
         binding = FragmentTrainingListBinding.inflate(layoutInflater)
 
+        setNavigation()
         loadEntranceData()
         loadAdapter()
         itemClick()
@@ -55,7 +58,7 @@ class TrainingListFragment : Fragment() {
             override fun onClick(training: Training) {
                 val bundle = Bundle()
                 bundle.putSerializable("training", training)
-                findNavController().navigate(R.id.trainingFragment, bundle)
+                findNavController().navigate(R.id.trainingFragment, bundle,navOptions.build())
             }
         }
     }
@@ -64,6 +67,14 @@ class TrainingListFragment : Fragment() {
         adapter = TrainingAdapter()
         adapter.setAdapter(trainingList)
         binding.rv.adapter = adapter
+    }
+
+    private fun setNavigation() {
+        navOptions = NavOptions.Builder()
+        navOptions.setEnterAnim(R.anim.enter_from_right)
+        navOptions.setPopEnterAnim(R.anim.enter_from_left)
+        navOptions.setExitAnim(R.anim.exit_to_left)
+        navOptions.setPopExitAnim(R.anim.exit_to_right)
     }
 
     private fun loadEntranceData() {

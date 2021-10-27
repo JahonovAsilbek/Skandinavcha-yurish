@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import phoenix.skandinav.R
 import phoenix.skandinav.databinding.FragmentTrainingBinding
@@ -27,6 +27,7 @@ class TrainingFragment : Fragment() {
 
     lateinit var binding: FragmentTrainingBinding
     lateinit var mainPart: MainPart
+    lateinit var navOptions: NavOptions.Builder
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +35,7 @@ class TrainingFragment : Fragment() {
     ): View {
         binding = FragmentTrainingBinding.inflate(layoutInflater)
 
+        setNavigation()
         loadMainPartData()
         loadDataToView()
         backClick()
@@ -41,19 +43,19 @@ class TrainingFragment : Fragment() {
         binding.entrance.setOnClickListener {
             val bundle = Bundle()
             bundle.putSerializable("training", training)
-            findNavController().navigate(R.id.entranceFragment, bundle)
+            findNavController().navigate(R.id.entranceFragment, bundle,navOptions.build())
         }
 
         binding.mainPart.setOnClickListener {
             val bundle = Bundle()
             bundle.putSerializable("main_part", mainPart)
-            findNavController().navigate(R.id.mainPartFragment, bundle)
+            findNavController().navigate(R.id.mainPartFragment, bundle,navOptions.build())
         }
 
         binding.endPart.setOnClickListener {
             val bundle = Bundle()
             bundle.putSerializable("end_part", training)
-            findNavController().navigate(R.id.preparationPartFragment, bundle)
+            findNavController().navigate(R.id.preparationPartFragment, bundle,navOptions.build())
         }
 
         return binding.root
@@ -63,10 +65,11 @@ class TrainingFragment : Fragment() {
         mainPart = MainPart(
             1,
             training?.id,
+            resources.getString(R.string.info_dialog_text),
             "HCfPhZQz2CE",
-            null,
+            resources.getString(R.string.info_dialog_text),
             "HCfPhZQz2CE",
-            null,
+            resources.getString(R.string.info_dialog_text),
             "HCfPhZQz2CE",
             null,
             null,
@@ -78,6 +81,14 @@ class TrainingFragment : Fragment() {
         binding.back.setOnClickListener {
             findNavController().popBackStack()
         }
+    }
+
+    private fun setNavigation() {
+        navOptions = NavOptions.Builder()
+        navOptions.setEnterAnim(R.anim.enter_from_right)
+        navOptions.setPopEnterAnim(R.anim.enter_from_left)
+        navOptions.setExitAnim(R.anim.exit_to_left)
+        navOptions.setPopExitAnim(R.anim.exit_to_right)
     }
 
     private fun loadDataToView() {

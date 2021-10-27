@@ -7,12 +7,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import phoenix.skandinav.R
 import phoenix.skandinav.databinding.FragmentMonthBinding
 import uz.phoenix.skandinav.database.entities.Month
 import uz.phoenix.skandinav.ui.main.month.adapters.MonthAdapter
-import uz.phoenix.skandinav.ui.main.task.adapters.TrainingAdapter
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -33,6 +33,7 @@ class MonthFragment : Fragment() {
     lateinit var binding: FragmentMonthBinding
     lateinit var monthList: ArrayList<Month>
     lateinit var adapter: MonthAdapter
+    lateinit var navOptions: NavOptions.Builder
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,6 +41,7 @@ class MonthFragment : Fragment() {
     ): View {
         binding = FragmentMonthBinding.inflate(layoutInflater, container, false)
 
+        setNavigation()
         popBackStack()
         loadData()
         loadAdapter()
@@ -61,7 +63,7 @@ class MonthFragment : Fragment() {
                 Toast.makeText(binding.root.context, "${month.name}", Toast.LENGTH_SHORT).show()
                 val bundle = Bundle()
                 bundle.putSerializable("month", month)
-                findNavController().navigate(R.id.trainingListFragment, bundle)
+                findNavController().navigate(R.id.trainingListFragment, bundle, navOptions.build())
             }
         }
     }
@@ -70,6 +72,14 @@ class MonthFragment : Fragment() {
         adapter = MonthAdapter()
         adapter.setAdapter(monthList)
         binding.rv.adapter = adapter
+    }
+
+    private fun setNavigation() {
+        navOptions = NavOptions.Builder()
+        navOptions.setEnterAnim(R.anim.enter_from_right)
+        navOptions.setPopEnterAnim(R.anim.enter_from_left)
+        navOptions.setExitAnim(R.anim.exit_to_left)
+        navOptions.setPopExitAnim(R.anim.exit_to_right)
     }
 
     private fun loadData() {

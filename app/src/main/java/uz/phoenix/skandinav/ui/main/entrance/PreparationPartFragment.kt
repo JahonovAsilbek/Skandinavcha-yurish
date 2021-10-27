@@ -48,6 +48,7 @@ class PreparationPartFragment : Fragment() {
         if (mainPart != null) {
             binding.title.text = "Harakatli\no'yinlar"
             binding.preparationPart.text = mainPart!!.actionGame
+            binding.image.visibility = View.VISIBLE
         }
 
         if (nordWalking != null) {

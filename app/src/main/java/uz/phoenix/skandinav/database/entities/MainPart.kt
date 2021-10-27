@@ -16,6 +16,7 @@ class MainPart : Serializable {
     var task3Text: String? = null
     var task3Video: String? = null
     var actionGame: String? = null
+    var actionGameImage: String? = null
     var nordWalking: String? = null
 
     constructor(
@@ -28,6 +29,7 @@ class MainPart : Serializable {
         task3Text: String?,
         task3Video: String?,
         actionGame: String?,
+        actionGameImage: String?,
         nordWalking: String?
     ) {
         this.id = id
@@ -39,6 +41,7 @@ class MainPart : Serializable {
         this.task3Text = task3Text
         this.task3Video = task3Video
         this.actionGame = actionGame
+        this.actionGameImage = actionGameImage
         this.nordWalking = nordWalking
     }
 }
