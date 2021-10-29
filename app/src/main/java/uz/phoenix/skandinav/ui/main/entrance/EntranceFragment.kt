@@ -1,14 +1,19 @@
 package uz.phoenix.skandinav.ui.main.entrance
 
+import android.graphics.Color
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import phoenix.skandinav.R
 import phoenix.skandinav.databinding.FragmentEntranceBinding
+import phoenix.skandinav.databinding.InfoDialogBinding
+import uz.phoenix.skandinav.database.AppDatabase
 import uz.phoenix.skandinav.database.entities.Training
 
 private const val ARG_PARAM1 = "training"
@@ -34,6 +39,7 @@ class EntranceFragment : Fragment() {
         binding = FragmentEntranceBinding.inflate(layoutInflater)
 
         setNavigation()
+        loadDataToView()
 
         binding.back.setOnClickListener {
             findNavController().popBackStack()
@@ -46,10 +52,28 @@ class EntranceFragment : Fragment() {
         }
 
         binding.video.setOnClickListener {
-            binding.progress.visibility = View.VISIBLE
-            val bundle = Bundle()
-            bundle.putSerializable("training", training)
-            findNavController().navigate(R.id.videoFragment, bundle, navOptions.build())
+
+            if (training!!.isVideoOpened == false) {
+                binding.progress.visibility = View.VISIBLE
+                val bundle = Bundle()
+                bundle.putSerializable("training", training)
+                findNavController().navigate(R.id.videoFragment, bundle, navOptions.build())
+            } else {
+                val dialog = AlertDialog.Builder(binding.root.context, R.style.RoundedCornersDialog)
+                val alertDialog = dialog.create()
+                val view = InfoDialogBinding.inflate(layoutInflater, null, false)
+                view.root.setBackgroundColor(resources.getColor(R.color.white))
+                view.ok.setOnClickListener {
+                    alertDialog.cancel()
+                }
+                view.title.text = "Musobaqa nizomi"
+                view.text.text = "Avval Nazariy\nma'lumotlarni o'qib\nchiqing"
+                view.text.gravity = Gravity.CENTER
+                view.text.textSize = 25f
+                alertDialog.setView(view.root)
+                alertDialog.show()
+            }
+
         }
 
         binding.tasks.setOnClickListener {
@@ -59,6 +83,18 @@ class EntranceFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    private fun loadDataToView() {
+        if (training != null) {
+            if (training!!.isVideoOpened == false) {
+                binding.video.setBackgroundColor(Color.parseColor("C4C4C4"))
+                binding.lock.visibility = View.VISIBLE
+            } else {
+                binding.video.setBackgroundColor(resources.getColor(R.color.main_blue))
+                binding.lock.visibility = View.INVISIBLE
+            }
+        }
     }
 
     private fun setNavigation() {
@@ -71,6 +107,9 @@ class EntranceFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        training =
+            AppDatabase.GET.getTrainingDatabase().getTrainingDao().getTrainingById(training?.id!!)
+        loadDataToView()
         binding.progress.visibility = View.INVISIBLE
     }
 

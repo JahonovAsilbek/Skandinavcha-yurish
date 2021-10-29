@@ -91,6 +91,18 @@
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/theoretical_info" />
 
+    <ImageView
+        android:id="@+id/lock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="30dp"
+        android:padding="5dp"
+        android:src="@drawable/ic_lock"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/video"
+        app:layout_constraintRight_toRightOf="@id/video"
+        app:layout_constraintTop_toTopOf="@id/video" />
+
     <ProgressBar
         android:id="@+id/progress"
         style="@style/Widget.AppCompat.ProgressBar"

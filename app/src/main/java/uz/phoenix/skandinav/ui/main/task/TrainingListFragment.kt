@@ -9,7 +9,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import phoenix.skandinav.R
 import phoenix.skandinav.databinding.FragmentTrainingListBinding
-import uz.phoenix.skandinav.database.entities.MainPart
+import uz.phoenix.skandinav.database.AppDatabase
 import uz.phoenix.skandinav.database.entities.Month
 import uz.phoenix.skandinav.database.entities.Training
 import uz.phoenix.skandinav.ui.main.task.adapters.TrainingAdapter
@@ -58,7 +58,7 @@ class TrainingListFragment : Fragment() {
             override fun onClick(training: Training) {
                 val bundle = Bundle()
                 bundle.putSerializable("training", training)
-                findNavController().navigate(R.id.trainingFragment, bundle,navOptions.build())
+                findNavController().navigate(R.id.trainingFragment, bundle, navOptions.build())
             }
         }
     }
@@ -69,6 +69,13 @@ class TrainingListFragment : Fragment() {
         binding.rv.adapter = adapter
     }
 
+    private fun loadEntranceData() {
+        if (month != null) {
+            trainingList = AppDatabase.GET.getTrainingDatabase().getTrainingDao()
+                .getTraining(month?.id!!) as ArrayList
+        }
+    }
+
     private fun setNavigation() {
         navOptions = NavOptions.Builder()
         navOptions.setEnterAnim(R.anim.enter_from_right)
@@ -77,30 +84,11 @@ class TrainingListFragment : Fragment() {
         navOptions.setPopExitAnim(R.anim.exit_to_right)
     }
 
-    private fun loadEntranceData() {
-        trainingList = ArrayList()
-//        trainingList = TrainingDatabase.Get.getTrainingDatabase().trainingDao().getTraining(month?.id!!)
-        for (i in 0 until 12) {
-
-            trainingList.add(
-                Training(
-                    i,
-                    i,
-                    "${i + 1}-mashg'ulot",
-                    null,
-                    "HCfPhZQz2CE",
-                    null,
-                    null,
-                    "HCfPhZQz2CE",
-                    null,
-                    "HCfPhZQz2CE",
-                    null,
-                    "HCfPhZQz2CE",
-                    true,
-                    null,
-                    true
-                )
-            )
-        }
+    override fun onResume() {
+        super.onResume()
+        trainingList.clear()
+        trainingList.addAll(AppDatabase.GET.getTrainingDatabase().getTrainingDao()
+            .getTraining(month?.id!!) as ArrayList)
+        adapter.notifyDataSetChanged()
     }
 }

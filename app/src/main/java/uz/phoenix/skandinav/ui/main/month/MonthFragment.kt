@@ -11,6 +11,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import phoenix.skandinav.R
 import phoenix.skandinav.databinding.FragmentMonthBinding
+import uz.phoenix.skandinav.database.AppDatabase
 import uz.phoenix.skandinav.database.entities.Month
 import uz.phoenix.skandinav.ui.main.month.adapters.MonthAdapter
 
@@ -43,7 +44,6 @@ class MonthFragment : Fragment() {
 
         setNavigation()
         popBackStack()
-        loadData()
         loadAdapter()
         monthClick()
         backClick()
@@ -70,7 +70,7 @@ class MonthFragment : Fragment() {
 
     private fun loadAdapter() {
         adapter = MonthAdapter()
-        adapter.setAdapter(monthList)
+        adapter.setAdapter(AppDatabase.GET.getTrainingDatabase().getTrainingDao().getAllMonth())
         binding.rv.adapter = adapter
     }
 
@@ -80,19 +80,6 @@ class MonthFragment : Fragment() {
         navOptions.setPopEnterAnim(R.anim.enter_from_left)
         navOptions.setExitAnim(R.anim.exit_to_left)
         navOptions.setPopExitAnim(R.anim.exit_to_right)
-    }
-
-    private fun loadData() {
-        monthList = ArrayList()
-        monthList.add(Month(0, "Sentyabr"))
-        monthList.add(Month(1, "Oktyabr"))
-        monthList.add(Month(2, "Noyabr"))
-        monthList.add(Month(3, "Dekabr"))
-        monthList.add(Month(4, "Yanvar"))
-        monthList.add(Month(5, "Fevral"))
-        monthList.add(Month(6, "Mart"))
-        monthList.add(Month(7, "Aprel"))
-        monthList.add(Month(8, "May"))
     }
 
     companion object {

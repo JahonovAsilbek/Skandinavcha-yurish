@@ -5,7 +5,7 @@ import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import java.io.Serializable
 
-@Entity
+@Entity(tableName = "month")
 class Month : Serializable {
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null

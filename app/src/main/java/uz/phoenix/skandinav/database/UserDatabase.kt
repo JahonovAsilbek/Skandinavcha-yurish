@@ -10,7 +10,7 @@ import uz.phoenix.skandinav.database.entities.User
 import uz.phoenix.skandinav.database.entities.UserData
 
 @Database(
-    entities = [User::class, UserData::class, MainPart::class],
+    entities = [User::class, UserData::class],
     version = 1,
     exportSchema = false
 )

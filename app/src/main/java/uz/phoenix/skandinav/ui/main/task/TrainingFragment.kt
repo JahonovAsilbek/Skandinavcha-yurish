@@ -9,6 +9,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import phoenix.skandinav.R
 import phoenix.skandinav.databinding.FragmentTrainingBinding
+import uz.phoenix.skandinav.database.AppDatabase
 import uz.phoenix.skandinav.database.entities.MainPart
 import uz.phoenix.skandinav.database.entities.Training
 
@@ -43,38 +44,29 @@ class TrainingFragment : Fragment() {
         binding.entrance.setOnClickListener {
             val bundle = Bundle()
             bundle.putSerializable("training", training)
-            findNavController().navigate(R.id.entranceFragment, bundle,navOptions.build())
+            findNavController().navigate(R.id.entranceFragment, bundle, navOptions.build())
         }
 
         binding.mainPart.setOnClickListener {
             val bundle = Bundle()
             bundle.putSerializable("main_part", mainPart)
-            findNavController().navigate(R.id.mainPartFragment, bundle,navOptions.build())
+            findNavController().navigate(R.id.mainPartFragment, bundle, navOptions.build())
         }
 
         binding.endPart.setOnClickListener {
             val bundle = Bundle()
             bundle.putSerializable("end_part", training)
-            findNavController().navigate(R.id.preparationPartFragment, bundle,navOptions.build())
+            findNavController().navigate(R.id.preparationPartFragment, bundle, navOptions.build())
         }
 
         return binding.root
     }
 
     private fun loadMainPartData() {
-        mainPart = MainPart(
-            1,
-            training?.id,
-            resources.getString(R.string.info_dialog_text),
-            "HCfPhZQz2CE",
-            resources.getString(R.string.info_dialog_text),
-            "HCfPhZQz2CE",
-            resources.getString(R.string.info_dialog_text),
-            "HCfPhZQz2CE",
-            null,
-            null,
-            null
-        )
+        if (training != null) {
+            mainPart =
+                AppDatabase.GET.getTrainingDatabase().getTrainingDao().getMainPart(training?.id!!)
+        }
     }
 
     private fun backClick() {
