@@ -1,4 +1,4 @@
-package uz.phoenix.skandinav.ui.slideshow
+package uz.phoenix.skandinav.ui.tournament
 
 import android.os.Bundle
 import android.view.LayoutInflater

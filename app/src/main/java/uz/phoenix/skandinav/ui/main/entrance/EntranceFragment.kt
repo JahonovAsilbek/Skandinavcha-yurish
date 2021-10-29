@@ -46,6 +46,7 @@ class EntranceFragment : Fragment() {
         }
 
         binding.video.setOnClickListener {
+            binding.progress.visibility = View.VISIBLE
             val bundle = Bundle()
             bundle.putSerializable("training", training)
             findNavController().navigate(R.id.videoFragment, bundle, navOptions.build())
@@ -66,6 +67,11 @@ class EntranceFragment : Fragment() {
         navOptions.setPopEnterAnim(R.anim.enter_from_left)
         navOptions.setExitAnim(R.anim.exit_to_left)
         navOptions.setPopExitAnim(R.anim.exit_to_right)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        binding.progress.visibility = View.INVISIBLE
     }
 
 }

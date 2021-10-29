@@ -181,7 +181,7 @@ class InputDataFragment : Fragment() {
     private fun clearSpeedVisibility() {
         binding.high.setTextColor(resources.getColor(R.color.main_blue_40))
         binding.normal.setTextColor(resources.getColor(R.color.main_blue_40))
-        binding.high.setTextColor(resources.getColor(R.color.main_blue_40))
+        binding.slow.setTextColor(resources.getColor(R.color.main_blue_40))
         binding.speedPickerHigh.visibility = View.INVISIBLE
         binding.speedPickerNormal.visibility = View.INVISIBLE
         binding.speedPickerSlow.visibility = View.INVISIBLE

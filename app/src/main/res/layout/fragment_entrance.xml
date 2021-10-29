@@ -91,6 +91,18 @@
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/theoretical_info" />
 
+    <ProgressBar
+        android:id="@+id/progress"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:elevation="5dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/video"
+        app:layout_constraintLeft_toLeftOf="@id/video"
+        app:layout_constraintRight_toRightOf="@id/video"
+        app:layout_constraintTop_toTopOf="@id/video" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/tasks"
         android:layout_width="match_parent"

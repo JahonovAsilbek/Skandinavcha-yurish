@@ -1,4 +1,4 @@
-package uz.phoenix.skandinav.ui.slideshow
+package uz.phoenix.skandinav.ui.tournament
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
