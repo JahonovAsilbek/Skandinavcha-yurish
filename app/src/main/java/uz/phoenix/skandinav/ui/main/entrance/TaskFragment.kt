@@ -12,6 +12,7 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.You
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 import phoenix.skandinav.R
 import phoenix.skandinav.databinding.FragmentTaskBinding
+import uz.phoenix.skandinav.database.AppDatabase
 import uz.phoenix.skandinav.database.entities.MainPart
 import uz.phoenix.skandinav.database.entities.Training
 
@@ -315,9 +316,7 @@ class TaskFragment : Fragment() {
                     }
 
                     override fun onReady(youTubePlayer: YouTubePlayer) {
-                        if (training != null) {
-                            training?.task1Video?.let { youTubePlayer.loadVideo(it, 0f) }
-                        }
+                        youTubePlayer.loadVideo(training?.task1Video!!,0f)
                     }
 
                     override fun onStateChange(

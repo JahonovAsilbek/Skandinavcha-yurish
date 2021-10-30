@@ -97,6 +97,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="30dp"
         android:padding="5dp"
+        android:elevation="5dp"
         android:src="@drawable/ic_lock"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@id/video"

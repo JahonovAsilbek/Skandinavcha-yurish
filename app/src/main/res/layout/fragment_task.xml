@@ -125,11 +125,10 @@
                         android:id="@+id/you_tube"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:autoPlay="true"
+                        app:autoPlay="false"
                         app:showFullScreenButton="false"
                         app:showYouTubeButton="false"
-                        app:useWebUi="false"
-                        app:videoId="HCfPhZQz2CE" />
+                        app:useWebUi="false" />
 
                 </androidx.cardview.widget.CardView>
 

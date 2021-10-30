@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
@@ -43,6 +44,7 @@ class TrainingListFragment : Fragment() {
         loadAdapter()
         itemClick()
         backClick()
+        popBackStack()
 
         return binding.root
     }
@@ -53,12 +55,24 @@ class TrainingListFragment : Fragment() {
         }
     }
 
+    private fun popBackStack() {
+        val callback: OnBackPressedCallback =
+            object : OnBackPressedCallback(true /* enabled by default */) {
+                override fun handleOnBackPressed() {
+                    findNavController().popBackStack()
+                }
+            }
+        requireActivity().onBackPressedDispatcher.addCallback(callback)
+    }
+
     private fun itemClick() {
         adapter.onTrainingClick = object : TrainingAdapter.OnTrainingClick {
             override fun onClick(training: Training) {
-                val bundle = Bundle()
-                bundle.putSerializable("training", training)
-                findNavController().navigate(R.id.trainingFragment, bundle, navOptions.build())
+                if (training.isFinished == true) {
+                    val bundle = Bundle()
+                    bundle.putSerializable("training", training)
+                    findNavController().navigate(R.id.trainingFragment, bundle, navOptions.build())
+                }
             }
         }
     }
@@ -71,6 +85,7 @@ class TrainingListFragment : Fragment() {
 
     private fun loadEntranceData() {
         if (month != null) {
+            binding.title.text = month?.name
             trainingList = AppDatabase.GET.getTrainingDatabase().getTrainingDao()
                 .getTraining(month?.id!!) as ArrayList
         }
@@ -87,8 +102,10 @@ class TrainingListFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         trainingList.clear()
-        trainingList.addAll(AppDatabase.GET.getTrainingDatabase().getTrainingDao()
-            .getTraining(month?.id!!) as ArrayList)
+        trainingList.addAll(
+            AppDatabase.GET.getTrainingDatabase().getTrainingDao()
+                .getTraining(month?.id!!) as ArrayList
+        )
         adapter.notifyDataSetChanged()
     }
 }

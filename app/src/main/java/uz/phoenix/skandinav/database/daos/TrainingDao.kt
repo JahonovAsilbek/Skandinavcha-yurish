@@ -15,10 +15,13 @@ interface TrainingDao {
     fun getTraining(monthId: Int): List<Training>
 
     @Query("select * from training where id=:id")
-    fun getTrainingById(id:Int):Training
+    fun getTrainingById(id: Int): Training
 
     @Update
     fun updateTraining(training: Training)
+
+    @Query("update training set isFinished=1 where id=:id")
+    fun finishTraining(id: Int)
 
     @Query("select * from month")
     fun getAllMonth(): List<Month>

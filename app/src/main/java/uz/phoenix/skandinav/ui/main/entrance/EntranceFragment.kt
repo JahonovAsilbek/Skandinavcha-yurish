@@ -12,6 +12,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import phoenix.skandinav.R
 import phoenix.skandinav.databinding.FragmentEntranceBinding
+import phoenix.skandinav.databinding.InfoDialog2Binding
 import phoenix.skandinav.databinding.InfoDialogBinding
 import uz.phoenix.skandinav.database.AppDatabase
 import uz.phoenix.skandinav.database.entities.Training
@@ -53,7 +54,7 @@ class EntranceFragment : Fragment() {
 
         binding.video.setOnClickListener {
 
-            if (training!!.isVideoOpened == false) {
+            if (training!!.isVideoOpened == true) {
                 binding.progress.visibility = View.VISIBLE
                 val bundle = Bundle()
                 bundle.putSerializable("training", training)
@@ -61,15 +62,15 @@ class EntranceFragment : Fragment() {
             } else {
                 val dialog = AlertDialog.Builder(binding.root.context, R.style.RoundedCornersDialog)
                 val alertDialog = dialog.create()
-                val view = InfoDialogBinding.inflate(layoutInflater, null, false)
+                val view = InfoDialog2Binding.inflate(layoutInflater, null, false)
                 view.root.setBackgroundColor(resources.getColor(R.color.white))
                 view.ok.setOnClickListener {
                     alertDialog.cancel()
                 }
                 view.title.text = "Musobaqa nizomi"
-                view.text.text = "Avval Nazariy\nma'lumotlarni o'qib\nchiqing"
+                view.text.text = "Avval Nazariy ma'lumotlarni o'qib chiqing"
                 view.text.gravity = Gravity.CENTER
-                view.text.textSize = 25f
+                view.text.textSize = 22f
                 alertDialog.setView(view.root)
                 alertDialog.show()
             }
@@ -88,10 +89,10 @@ class EntranceFragment : Fragment() {
     private fun loadDataToView() {
         if (training != null) {
             if (training!!.isVideoOpened == false) {
-                binding.video.setBackgroundColor(Color.parseColor("C4C4C4"))
+                binding.video.setBackgroundResource(R.drawable.training_locked_back)
                 binding.lock.visibility = View.VISIBLE
             } else {
-                binding.video.setBackgroundColor(resources.getColor(R.color.main_blue))
+                binding.video.setBackgroundResource(R.drawable.first_enter_btn_back)
                 binding.lock.visibility = View.INVISIBLE
             }
         }
