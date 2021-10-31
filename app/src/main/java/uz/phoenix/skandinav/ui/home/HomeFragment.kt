@@ -32,9 +32,16 @@ class HomeFragment : Fragment() {
         openDrawer()
         popBackStack()
         userDataClick()
+        tournamentClick()
         dailyClick()
 
         return binding.root
+    }
+
+    private fun tournamentClick() {
+        binding.tournament.setOnClickListener {
+            findNavController().navigate(R.id.tournamentFragment)
+        }
     }
 
     private fun setNavigation() {
@@ -46,7 +53,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun dailyClick() {
-        binding.daily.setOnClickListener {
+        binding.training.setOnClickListener {
             findNavController().navigate(R.id.monthFragment, Bundle(), navOptions.build())
         }
     }

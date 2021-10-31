@@ -31,7 +31,7 @@ class SignUpFragment : Fragment() {
             val surname = binding.surname.text.toString().trim()
 
             if (name.isNotEmpty() && surname.isNotEmpty()) {
-                val user = User(name, surname, null, null, null, null)
+                val user = User(name, surname, null, null, null, null,0)
                 UserDatabase.Get.getUserDatabase().getDao().insertUser(user)
                 findNavController().navigate(R.id.inputDataFragment, Bundle(), navOptions.build())
             } else {

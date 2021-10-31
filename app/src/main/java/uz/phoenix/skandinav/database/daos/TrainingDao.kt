@@ -3,6 +3,7 @@ package uz.phoenix.skandinav.database.daos
 import androidx.room.*
 import uz.phoenix.skandinav.database.entities.MainPart
 import uz.phoenix.skandinav.database.entities.Month
+import uz.phoenix.skandinav.database.entities.Tournament
 import uz.phoenix.skandinav.database.entities.Training
 
 @Dao
@@ -28,4 +29,7 @@ interface TrainingDao {
 
     @Query("select * from main_part where taskId=:taskId")
     fun getMainPart(taskId: Int): MainPart
+
+    @Query("select * from tournament")
+    fun getTournament():List<Tournament>
 }

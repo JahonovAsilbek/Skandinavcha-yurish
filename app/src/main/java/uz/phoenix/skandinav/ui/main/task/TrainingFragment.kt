@@ -4,14 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.firestore.FirebaseFirestore
 import phoenix.skandinav.R
 import phoenix.skandinav.databinding.FragmentTrainingBinding
 import uz.phoenix.skandinav.database.AppDatabase
 import uz.phoenix.skandinav.database.entities.MainPart
+import uz.phoenix.skandinav.database.entities.Rating
 import uz.phoenix.skandinav.database.entities.Training
+import uz.phoenix.skandinav.database.entities.User
 
 private const val ARG_PARAM1 = "training"
 
@@ -29,6 +33,8 @@ class TrainingFragment : Fragment() {
     lateinit var binding: FragmentTrainingBinding
     lateinit var mainPart: MainPart
     lateinit var navOptions: NavOptions.Builder
+    lateinit var firebaseFireStore: FirebaseFirestore
+    lateinit var users: ArrayList<Rating>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,6 +42,7 @@ class TrainingFragment : Fragment() {
     ): View {
         binding = FragmentTrainingBinding.inflate(layoutInflater)
 
+        loadFirebase()
         setNavigation()
         loadMainPartData()
         loadDataToView()
@@ -56,10 +63,26 @@ class TrainingFragment : Fragment() {
         binding.endPart.setOnClickListener {
             val bundle = Bundle()
             bundle.putSerializable("end_part", training)
+            bundle.putSerializable("users", users)
             findNavController().navigate(R.id.preparationPartFragment, bundle, navOptions.build())
         }
 
         return binding.root
+    }
+
+    private fun loadFirebase() {
+        firebaseFireStore = FirebaseFirestore.getInstance()
+        users = ArrayList()
+
+        firebaseFireStore.collection("users").get().addOnCompleteListener {
+            val result = it.result
+            result?.forEach { queryDocumentSnapshot ->
+                val user = queryDocumentSnapshot.toObject(Rating::class.java)
+                users.add(user)
+            }
+        }.addOnFailureListener {
+            Toast.makeText(binding.root.context, "Failure", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun loadMainPartData() {

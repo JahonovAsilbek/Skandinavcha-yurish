@@ -82,7 +82,7 @@
                 android:layout_gravity="center"
                 android:fontFamily="@font/montserrat_extrabold"
                 android:gravity="center"
-                android:text="Mening\nmashg'ulotlarim"
+                android:text="Mening\nkundaligim"
                 android:textColor="@color/main_text_color"
                 android:textSize="25sp"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -91,15 +91,18 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
+        <LinearLayout
+            android:orientation="vertical"
             android:id="@+id/rv"
-            android:overScrollMode="never"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="15dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-            tools:listitem="@layout/item_month" />
+            android:overScrollMode="never"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" >
+
+
+
+        </LinearLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

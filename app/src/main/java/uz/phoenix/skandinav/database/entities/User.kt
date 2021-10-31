@@ -14,17 +14,19 @@ class User {
     var phoneNumber: String? = null
     var info: String? = null
     var imagePath: String? = null
+    var point: Int = 0
 
     constructor()
 
     @Ignore
     constructor(
-        name: String,
+        name: String?,
         surname: String?,
         birthday: String?,
         phoneNumber: String?,
         info: String?,
-        imagePath: String?
+        imagePath: String?,
+        point: Int
     ) {
         this.name = name
         this.surname = surname
@@ -32,5 +34,8 @@ class User {
         this.phoneNumber = phoneNumber
         this.info = info
         this.imagePath = imagePath
+        this.point = point
     }
+
+
 }

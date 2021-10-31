@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
@@ -11,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import phoenix.skandinav.R
 import phoenix.skandinav.databinding.FragmentTrainingListBinding
 import uz.phoenix.skandinav.database.AppDatabase
+import uz.phoenix.skandinav.database.UserDatabase
 import uz.phoenix.skandinav.database.entities.Month
 import uz.phoenix.skandinav.database.entities.Training
 import uz.phoenix.skandinav.ui.main.task.adapters.TrainingAdapter
@@ -99,13 +101,4 @@ class TrainingListFragment : Fragment() {
         navOptions.setPopExitAnim(R.anim.exit_to_right)
     }
 
-    override fun onResume() {
-        super.onResume()
-        trainingList.clear()
-        trainingList.addAll(
-            AppDatabase.GET.getTrainingDatabase().getTrainingDao()
-                .getTraining(month?.id!!) as ArrayList
-        )
-        adapter.notifyDataSetChanged()
-    }
 }

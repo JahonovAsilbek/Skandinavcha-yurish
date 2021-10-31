@@ -45,7 +45,15 @@ class MainActivity : AppCompatActivity(), SettingsFragment.ProfileChangeListener
 
         infoClick()
         settingsClick()
+        ratingClick()
         setDataToDrawer()
+    }
+
+    private fun ratingClick() {
+        binding.rating.setOnClickListener {
+            binding.drawerLayout.closeDrawers()
+            findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.ratingFragment)
+        }
     }
 
     fun setDataToDrawer() {

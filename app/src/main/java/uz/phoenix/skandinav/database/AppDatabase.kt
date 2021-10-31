@@ -7,10 +7,11 @@ import androidx.room.RoomDatabase
 import uz.phoenix.skandinav.database.daos.TrainingDao
 import uz.phoenix.skandinav.database.entities.MainPart
 import uz.phoenix.skandinav.database.entities.Month
+import uz.phoenix.skandinav.database.entities.Tournament
 import uz.phoenix.skandinav.database.entities.Training
 
 @Database(
-    entities = [Month::class, Training::class, MainPart::class],
+    entities = [Month::class, Training::class, MainPart::class, Tournament::class],
     version = 1,
     exportSchema = false
 )

@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.35" />
+        app:layout_constraintGuide_percent="0.30" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/image"
@@ -48,7 +48,7 @@
         app:layout_constraintTop_toBottomOf="@id/drawer_menu">
 
         <ImageView
-            android:scaleType="centerCrop"
+            android:scaleType="fitXY"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/img2" />
@@ -69,11 +69,36 @@
         app:layout_constraintTop_toBottomOf="@id/image" />
 
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_55"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_75"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.75" />
+
+    <TextView
+        android:id="@+id/training"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/training_back"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
+        android:text="Mening\nmashg'ulotlarim"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_55"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text" />
 
     <TextView
         android:id="@+id/daily"
@@ -91,7 +116,7 @@
         app:layout_constraintBottom_toBottomOf="@id/guideline_75"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/my_data"
-        app:layout_constraintTop_toBottomOf="@id/text" />
+        app:layout_constraintTop_toBottomOf="@id/training" />
 
     <TextView
         android:id="@+id/my_data"
@@ -109,7 +134,7 @@
         app:layout_constraintBottom_toBottomOf="@id/guideline_75"
         app:layout_constraintLeft_toRightOf="@id/daily"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text" />
+        app:layout_constraintTop_toBottomOf="@id/training" />
 
     <TextView
         android:id="@+id/tournament"

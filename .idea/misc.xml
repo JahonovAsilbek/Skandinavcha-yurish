@@ -27,6 +27,7 @@
         <entry key="app/src/main/res/drawable/ic_menu_camera.xml" value="0.2125" />
         <entry key="app/src/main/res/drawable/ic_profile_image.xml" value="0.2125" />
         <entry key="app/src/main/res/drawable/ic_profile_img.xml" value="0.18888888888888888" />
+        <entry key="app/src/main/res/drawable/ic_rating.xml" value="0.2125" />
         <entry key="app/src/main/res/drawable/ic_right_arrow.xml" value="0.13783783783783785" />
         <entry key="app/src/main/res/drawable/ic_sign_up_corner.xml" value="0.13783783783783785" />
         <entry key="app/src/main/res/drawable/ic_speed_high.xml" value="0.2125" />
@@ -43,15 +44,18 @@
         <entry key="app/src/main/res/layout/content_main.xml" value="0.19635416666666666" />
         <entry key="app/src/main/res/layout/exit_dialog.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_action_game.xml" value="0.12736486486486487" />
+        <entry key="app/src/main/res/layout/fragment_daily.xml" value="0.19635416666666666" />
         <entry key="app/src/main/res/layout/fragment_entrance.xml" value="0.18" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.12" />
         <entry key="app/src/main/res/layout/fragment_input_data.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_main_part.xml" value="0.12736486486486487" />
         <entry key="app/src/main/res/layout/fragment_month.xml" value="0.16111111111111112" />
         <entry key="app/src/main/res/layout/fragment_preparation_part.xml" value="0.12" />
+        <entry key="app/src/main/res/layout/fragment_rating.xml" value="0.19635416666666666" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_show_user_data.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_slideshow.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_start.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_task.xml" value="0.12" />
         <entry key="app/src/main/res/layout/fragment_tasks_list.xml" value="0.25" />
@@ -62,7 +66,9 @@
         <entry key="app/src/main/res/layout/fragment_video.xml" value="0.25" />
         <entry key="app/src/main/res/layout/info_dialog.xml" value="0.25" />
         <entry key="app/src/main/res/layout/info_dialog_2.xml" value="0.12736486486486487" />
+        <entry key="app/src/main/res/layout/info_dialog_3.xml" value="0.19635416666666666" />
         <entry key="app/src/main/res/layout/item_month.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/item_rating.xml" value="0.22" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.2" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.1" />
         <entry key="app/src/main/res/menu/drawer_menu.xml" value="0.17453703703703705" />

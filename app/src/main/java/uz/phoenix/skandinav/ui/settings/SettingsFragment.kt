@@ -13,6 +13,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.github.florent37.runtimepermission.kotlin.askPermission
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import phoenix.skandinav.R
 import phoenix.skandinav.databinding.FragmentSettingsBinding
 import uz.phoenix.skandinav.database.UserDatabase
@@ -26,6 +28,7 @@ class SettingsFragment : Fragment() {
     private val binding get() = _binding!!
     private var imagePath = ""
     lateinit var profileChangeListener: ProfileChangeListener
+    lateinit var user: User
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,23 +54,28 @@ class SettingsFragment : Fragment() {
                     binding.birthday.text.toString().trim(),
                     binding.phoneNumber.text.toString().trim(),
                     binding.aboutMe.text.toString().trim(),
-                    imagePath
+                    imagePath,
+                    user.point
                 )
             )
-            profileChangeListener.dataChangeListener(User(
-                binding.name.text.toString().trim(),
-                binding.surname.text.toString().trim(),
-                binding.birthday.text.toString().trim(),
-                binding.phoneNumber.text.toString().trim(),
-                binding.aboutMe.text.toString().trim(),
-                imagePath
-            ))
+            profileChangeListener.dataChangeListener(
+                User(
+                    binding.name.text.toString().trim(),
+                    binding.surname.text.toString().trim(),
+                    binding.birthday.text.toString().trim(),
+                    binding.phoneNumber.text.toString().trim(),
+                    binding.aboutMe.text.toString().trim(),
+                    imagePath,
+                    user.point
+                )
+            )
+
             findNavController().popBackStack()
         }
     }
 
     private fun loadDataToView() {
-        val user = UserDatabase.Get.getUserDatabase().getDao().getUser()
+        user = UserDatabase.Get.getUserDatabase().getDao().getUser()
         if (user.imagePath != null) {
             binding.profileImage.setImageURI(Uri.parse(user.imagePath))
             imagePath = user.imagePath!!

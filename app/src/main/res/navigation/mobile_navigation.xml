@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_nav_home_to_monthFragment"
             app:destination="@id/monthFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_ratingFragment"
+            app:destination="@id/ratingFragment" />
     </fragment>
 
     <fragment
@@ -29,10 +32,10 @@
         tools:layout="@layout/fragment_settings" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="uz.phoenix.skandinav.ui.tournament.SlideshowFragment"
+        android:id="@+id/tournamentFragment"
+        android:name="uz.phoenix.skandinav.ui.tournament.TournamentFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_tournament" />
     <fragment
         android:id="@+id/showUserDataFragment"
         android:name="uz.phoenix.skandinav.ui.settings.ShowUserDataFragment"
@@ -142,4 +145,9 @@
         android:name="uz.phoenix.skandinav.ui.main.main.ActionGameFragment"
         android:label="fragment_action_game"
         tools:layout="@layout/fragment_action_game" />
+    <fragment
+        android:id="@+id/ratingFragment"
+        android:name="uz.phoenix.skandinav.ui.rating.RatingFragment"
+        android:label="fragment_rating"
+        tools:layout="@layout/fragment_rating" />
 </navigation>
