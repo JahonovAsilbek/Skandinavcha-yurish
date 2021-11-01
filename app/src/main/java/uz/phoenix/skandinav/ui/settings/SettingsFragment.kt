@@ -13,8 +13,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.github.florent37.runtimepermission.kotlin.askPermission
-import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
 import phoenix.skandinav.R
 import phoenix.skandinav.databinding.FragmentSettingsBinding
 import uz.phoenix.skandinav.database.UserDatabase
@@ -49,6 +47,7 @@ class SettingsFragment : Fragment() {
         binding.editBtn.setOnClickListener {
             UserDatabase.Get.getUserDatabase().getDao().updateUser(
                 User(
+                    user.uId,
                     binding.name.text.toString().trim(),
                     binding.surname.text.toString().trim(),
                     binding.birthday.text.toString().trim(),

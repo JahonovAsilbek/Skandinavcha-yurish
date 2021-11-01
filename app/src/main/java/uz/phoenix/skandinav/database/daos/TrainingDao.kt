@@ -27,9 +27,12 @@ interface TrainingDao {
     @Query("select * from month")
     fun getAllMonth(): List<Month>
 
+    @Query("select name from month")
+    fun getAllMonthName(): List<String>
+
     @Query("select * from main_part where taskId=:taskId")
     fun getMainPart(taskId: Int): MainPart
 
     @Query("select * from tournament")
-    fun getTournament():List<Tournament>
+    fun getTournament(): List<Tournament>
 }

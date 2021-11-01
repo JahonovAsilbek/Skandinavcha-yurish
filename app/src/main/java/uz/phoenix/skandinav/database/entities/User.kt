@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity
 class User {
     @PrimaryKey
-    var id = 0
+    var uId = "0"
     var name: String? = null
     var surname: String? = null
     var birthday: String? = null
@@ -37,5 +37,24 @@ class User {
         this.point = point
     }
 
-
+    @Ignore
+    constructor(
+        uId: String,
+        name: String?,
+        surname: String?,
+        birthday: String?,
+        phoneNumber: String?,
+        info: String?,
+        imagePath: String?,
+        point: Int
+    ) {
+        this.uId = uId
+        this.name = name
+        this.surname = surname
+        this.birthday = birthday
+        this.phoneNumber = phoneNumber
+        this.info = info
+        this.imagePath = imagePath
+        this.point = point
+    }
 }

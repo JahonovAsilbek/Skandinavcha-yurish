@@ -34,6 +34,7 @@ class HomeFragment : Fragment() {
         userDataClick()
         tournamentClick()
         dailyClick()
+        trainingClick()
 
         return binding.root
     }
@@ -53,6 +54,12 @@ class HomeFragment : Fragment() {
     }
 
     private fun dailyClick() {
+        binding.daily.setOnClickListener {
+            findNavController().navigate(R.id.dailyFragment, Bundle(), navOptions.build())
+        }
+    }
+
+    private fun trainingClick() {
         binding.training.setOnClickListener {
             findNavController().navigate(R.id.monthFragment, Bundle(), navOptions.build())
         }

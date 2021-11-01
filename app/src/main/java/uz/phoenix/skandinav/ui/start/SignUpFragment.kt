@@ -16,6 +16,7 @@ import uz.phoenix.skandinav.database.entities.User
 class SignUpFragment : Fragment() {
 
     lateinit var navOptions: NavOptions.Builder
+    private val charPool: List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,7 +32,7 @@ class SignUpFragment : Fragment() {
             val surname = binding.surname.text.toString().trim()
 
             if (name.isNotEmpty() && surname.isNotEmpty()) {
-                val user = User(name, surname, null, null, null, null,0)
+                val user = User(getRandomString(16), name, surname, null, null, null, null, 0)
                 UserDatabase.Get.getUserDatabase().getDao().insertUser(user)
                 findNavController().navigate(R.id.inputDataFragment, Bundle(), navOptions.build())
             } else {
@@ -41,6 +42,13 @@ class SignUpFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    fun getRandomString(length: Int): String {
+        val allowedChars = ('A'..'Z') + ('a'..'z') + ('0'..'9')
+        return (1..length)
+            .map { allowedChars.random() }
+            .joinToString("")
     }
 
     private fun setNavigation() {

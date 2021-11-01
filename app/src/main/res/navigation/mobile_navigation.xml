@@ -35,7 +35,11 @@
         android:id="@+id/tournamentFragment"
         android:name="uz.phoenix.skandinav.ui.tournament.TournamentFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_tournament" />
+        tools:layout="@layout/fragment_tournament" >
+        <action
+            android:id="@+id/action_tournamentFragment_to_dailyFragment"
+            app:destination="@id/dailyFragment" />
+    </fragment>
     <fragment
         android:id="@+id/showUserDataFragment"
         android:name="uz.phoenix.skandinav.ui.settings.ShowUserDataFragment"
@@ -150,4 +154,8 @@
         android:name="uz.phoenix.skandinav.ui.rating.RatingFragment"
         android:label="fragment_rating"
         tools:layout="@layout/fragment_rating" />
+    <fragment
+        android:id="@+id/dailyFragment"
+        android:name="uz.phoenix.skandinav.ui.daily.DailyFragment"
+        android:label="DailyFragment" />
 </navigation>

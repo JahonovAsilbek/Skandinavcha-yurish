@@ -91,18 +91,361 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:id="@+id/rv"
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="15dp"
             android:overScrollMode="never"
-            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" >
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
+            <LinearLayout
+                android:id="@+id/rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                android:overScrollMode="never">
 
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    app:cardCornerRadius="15dp">
 
-        </LinearLayout>
+                    <TextView
+                        android:id="@+id/month"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/tv_back"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:gravity="center_vertical"
+                        android:paddingStart="35dp"
+                        android:paddingEnd="20dp"
+                        android:shadowColor="@color/main_blue"
+                        android:text="Oy"
+                        android:textColor="@color/main_text_color"
+                        android:textSize="18sp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    app:cardCornerRadius="15dp">
+
+                    <TextView
+                        android:id="@+id/training"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/tv_back"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:gravity="center_vertical"
+                        android:paddingStart="35dp"
+                        android:paddingEnd="20dp"
+                        android:shadowColor="@color/main_blue"
+                        android:text="Mashg'ulot"
+                        android:textColor="@color/main_text_color"
+                        android:textSize="18sp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    app:cardCornerRadius="15dp">
+
+                    <TextView
+                        android:id="@+id/health"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/tv_back"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:gravity="center_vertical"
+                        android:paddingStart="35dp"
+                        android:paddingEnd="20dp"
+                        android:shadowColor="@color/main_blue"
+                        android:text="Sog'lik holati"
+                        android:textColor="@color/main_text_color"
+                        android:textSize="18sp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    app:cardCornerRadius="15dp">
+
+                    <TextView
+                        android:id="@+id/mood"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/tv_back"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:gravity="center_vertical"
+                        android:paddingStart="35dp"
+                        android:paddingEnd="20dp"
+                        android:shadowColor="@color/main_blue"
+                        android:text="Kayfiyat"
+                        android:textColor="@color/main_text_color"
+                        android:textSize="18sp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    app:cardCornerRadius="15dp">
+
+                    <TextView
+                        android:id="@+id/appetite"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/tv_back"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:gravity="center_vertical"
+                        android:paddingStart="35dp"
+                        android:paddingEnd="20dp"
+                        android:shadowColor="@color/main_blue"
+                        android:text="Ishtaha"
+                        android:textColor="@color/main_text_color"
+                        android:textSize="18sp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    app:cardCornerRadius="15dp">
+
+                    <TextView
+                        android:id="@+id/desire"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/tv_back"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:gravity="center_vertical"
+                        android:paddingStart="35dp"
+                        android:paddingEnd="20dp"
+                        android:shadowColor="@color/main_blue"
+                        android:text="Shug'ullanish istagi"
+                        android:textColor="@color/main_text_color"
+                        android:textSize="18sp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    app:cardCornerRadius="15dp">
+
+                    <TextView
+                        android:id="@+id/sleep"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/tv_back"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:gravity="center_vertical"
+                        android:paddingStart="35dp"
+                        android:paddingEnd="20dp"
+                        android:shadowColor="@color/main_blue"
+                        android:text="Uyqu davomiyligi"
+                        android:textColor="@color/main_text_color"
+                        android:textSize="18sp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    app:cardCornerRadius="15dp">
+
+                    <TextView
+                        android:id="@+id/training_start_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/tv_back"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:gravity="center_vertical"
+                        android:paddingStart="35dp"
+                        android:paddingEnd="20dp"
+                        android:shadowColor="@color/main_blue"
+                        android:text="Mashg'ulot boshlanish vaqti"
+                        android:textColor="@color/main_text_color"
+                        android:textSize="18sp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    app:cardCornerRadius="15dp">
+
+                    <TextView
+                        android:id="@+id/training_end_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/tv_back"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:gravity="center_vertical"
+                        android:paddingStart="35dp"
+                        android:paddingEnd="20dp"
+                        android:shadowColor="@color/main_blue"
+                        android:text="Mashg'ulot yakunlash vaqti"
+                        android:textColor="@color/main_text_color"
+                        android:textSize="18sp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    app:cardCornerRadius="15dp">
+
+                    <TextView
+                        android:id="@+id/nord_walking_length"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/tv_back"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:gravity="center_vertical"
+                        android:paddingStart="35dp"
+                        android:paddingEnd="20dp"
+                        android:shadowColor="@color/main_blue"
+                        android:text="Skandinavcha yurish masofasi"
+                        android:textColor="@color/main_text_color"
+                        android:textSize="18sp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    app:cardCornerRadius="15dp">
+
+                    <TextView
+                        android:id="@+id/nord_walking_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/tv_back"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:gravity="center_vertical"
+                        android:paddingStart="35dp"
+                        android:paddingEnd="20dp"
+                        android:shadowColor="@color/main_blue"
+                        android:text="Skandinavcha yurish vaqti"
+                        android:textColor="@color/main_text_color"
+                        android:textSize="18sp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    app:cardCornerRadius="15dp">
+
+                    <TextView
+                        android:id="@+id/training_period"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/tv_back"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:gravity="center_vertical"
+                        android:paddingStart="35dp"
+                        android:paddingEnd="20dp"
+                        android:shadowColor="@color/main_blue"
+                        android:text="Mashg'ulot davomiyligi"
+                        android:textColor="@color/main_text_color"
+                        android:textSize="18sp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    app:cardCornerRadius="15dp">
+
+                    <TextView
+                        android:id="@+id/fatigue"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/tv_back"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:gravity="center_vertical"
+                        android:paddingStart="35dp"
+                        android:paddingEnd="20dp"
+                        android:shadowColor="@color/main_blue"
+                        android:text="Mashg'ulotdan so'ng charchoq"
+                        android:textColor="@color/main_text_color"
+                        android:textSize="18sp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    app:cardCornerRadius="15dp">
+
+                    <TextView
+                        android:id="@+id/disorder"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/tv_back"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:gravity="center_vertical"
+                        android:paddingStart="35dp"
+                        android:paddingEnd="20dp"
+                        android:shadowColor="@color/main_blue"
+                        android:text="Tartib(rejim) buzish"
+                        android:textColor="@color/main_text_color"
+                        android:textSize="18sp" />
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

@@ -73,21 +73,36 @@ class PreparationPartFragment : Fragment() {
             binding.image.visibility = View.GONE
             AppDatabase.GET.getTrainingDatabase().getTrainingDao().finishTraining(endPart?.id!! + 1)
             val user = UserDatabase.Get.getUserDatabase().getDao().getUser()
-            UserDatabase.Get.getUserDatabase().getDao().updateUser(
-                User(
-                    user.name,
-                    user.surname,
-                    user.birthday,
-                    user.phoneNumber,
-                    user.info,
-                    user.imagePath,
-                    user.point + 150
+            val finishedTrainings =
+                UserDatabase.Get.getUserDatabase().getDao().getFinishedTrainingByName(
+                    endPart?.monthId!!,
+                    endPart?.name!!
                 )
-            )
 
-            loadFirebase(user)
-
-            // update firestore database
+            if (finishedTrainings.isEmpty()) {
+                UserDatabase.Get.getUserDatabase().getDao().updateUser(
+                    User(
+                        user.uId,
+                        user.name,
+                        user.surname,
+                        user.birthday,
+                        user.phoneNumber,
+                        user.info,
+                        user.imagePath,
+                        user.point + 150
+                    )
+                )
+                // set database when training finishes
+                // its uses for daily fragment
+                UserDatabase.Get.getUserDatabase().getDao().insertFinishedTraining(
+                    Finished(
+                        endPart?.monthId,
+                        endPart?.name
+                    )
+                )
+                // update firestore database
+                loadFirebase(user)
+            }
             popBackStack()
         }
     }
@@ -103,7 +118,7 @@ class PreparationPartFragment : Fragment() {
     }
 
     private fun addUserToFirebase(user: User) {
-        firebaseFireStore.collection("users").document(user.name + user.surname)
+        firebaseFireStore.collection("users").document(user.uId)
             .set(Rating(user.name, user.surname, user.point))
             .addOnSuccessListener {
                 Toast.makeText(binding.root.context, "Success", Toast.LENGTH_SHORT).show()
@@ -125,7 +140,7 @@ class PreparationPartFragment : Fragment() {
     private fun updateUserFirebase(user: User) {
         val map = HashMap<Any, String>()
         map["point"] = user.point.toString()
-        firebaseFireStore.collection("users").document(user.name + user.surname)
+        firebaseFireStore.collection("users").document(user.uId)
             .set(map, SetOptions.merge()).addOnCompleteListener {
                 Toast.makeText(binding.root.context, "Success", Toast.LENGTH_SHORT).show()
             }
@@ -134,8 +149,19 @@ class PreparationPartFragment : Fragment() {
     private fun backClick() {
         binding.back.setOnClickListener {
             if (endPart != null) {
+                val dialog =
+                    AlertDialog.Builder(binding.root.context, R.style.RoundedCornersDialog)
+                val alertDialog = dialog.create()
+                val view = InfoDialog3Binding.inflate(layoutInflater, null, false)
+                view.root.setBackgroundColor(resources.getColor(R.color.white))
+                view.ok.setOnClickListener {
+                    alertDialog.cancel()
+                }
+                alertDialog.setView(view.root)
+                alertDialog.show()
                 findNavController().popBackStack(R.id.trainingListFragment, false)
-            } else findNavController().popBackStack()
+            } else
+                findNavController().popBackStack()
         }
     }
 

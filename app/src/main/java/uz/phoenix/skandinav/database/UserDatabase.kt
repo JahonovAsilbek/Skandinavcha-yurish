@@ -5,12 +5,12 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import uz.phoenix.skandinav.database.daos.UserDao
-import uz.phoenix.skandinav.database.entities.MainPart
+import uz.phoenix.skandinav.database.entities.Finished
 import uz.phoenix.skandinav.database.entities.User
 import uz.phoenix.skandinav.database.entities.UserData
 
 @Database(
-    entities = [User::class, UserData::class],
+    entities = [User::class, UserData::class, Finished::class],
     version = 1,
     exportSchema = false
 )
