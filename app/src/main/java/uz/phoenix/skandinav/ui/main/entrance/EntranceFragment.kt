@@ -69,7 +69,7 @@ class EntranceFragment : Fragment() {
                 }
                 view.title.text = "Musobaqa nizomi"
                 view.text.text = "Avval Nazariy ma'lumotlarni o'qib chiqing"
-                view.text.gravity = Gravity.CENTER
+                view.text.gravity = Gravity.CENTER_HORIZONTAL
                 view.text.textSize = 22f
                 alertDialog.setView(view.root)
                 alertDialog.show()

@@ -41,7 +41,7 @@ class HomeFragment : Fragment() {
 
     private fun tournamentClick() {
         binding.tournament.setOnClickListener {
-            findNavController().navigate(R.id.tournamentFragment)
+            findNavController().navigate(R.id.tournamentFragment, Bundle(), navOptions.build())
         }
     }
 
