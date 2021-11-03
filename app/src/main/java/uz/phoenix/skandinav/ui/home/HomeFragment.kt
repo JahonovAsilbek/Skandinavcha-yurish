@@ -2,6 +2,7 @@ package uz.phoenix.skandinav.ui.home
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +13,9 @@ import androidx.navigation.fragment.findNavController
 import phoenix.skandinav.R
 import phoenix.skandinav.databinding.ExitDialogBinding
 import phoenix.skandinav.databinding.FragmentHomeBinding
+import phoenix.skandinav.databinding.InfoDialog2Binding
 import uz.phoenix.skandinav.MainActivity
+import uz.phoenix.skandinav.database.UserDatabase
 
 
 class HomeFragment : Fragment() {
@@ -82,18 +85,45 @@ class HomeFragment : Fragment() {
         val callback: OnBackPressedCallback =
             object : OnBackPressedCallback(true /* enabled by default */) {
                 override fun handleOnBackPressed() {
-                    val dialog =
-                        AlertDialog.Builder(binding.root.context, R.style.RoundedCornersDialog)
-                    val alertDialog = dialog.create()
-                    val view = ExitDialogBinding.inflate(layoutInflater)
-                    view.cancel.setOnClickListener {
-                        alertDialog.cancel()
+                    val finishedTraining =
+                        UserDatabase.Get.getUserDatabase().getDao().getAllFinishedTraining()
+                    if (finishedTraining.isEmpty()) {
+                        val dialog =
+                            AlertDialog.Builder(binding.root.context, R.style.RoundedCornersDialog)
+                        val alertDialog = dialog.create()
+                        val view = ExitDialogBinding.inflate(layoutInflater)
+                        view.cancel.setOnClickListener {
+                            alertDialog.cancel()
+                        }
+                        view.exit.setOnClickListener {
+                            requireActivity().finish()
+                        }
+                        alertDialog.setView(view.root)
+                        alertDialog.show()
+                    } else {
+                        val dialog = androidx.appcompat.app.AlertDialog.Builder(
+                            binding.root.context,
+                            R.style.RoundedCornersDialog
+                        )
+                        val alertDialog = dialog.create()
+                        val view = InfoDialog2Binding.inflate(layoutInflater, null, false)
+                        view.root.setBackgroundColor(resources.getColor(R.color.white))
+                        view.ok.setOnClickListener {
+                            alertDialog.cancel()
+                            findNavController().navigate(
+                                R.id.dailyFragment,
+                                Bundle(), navOptions.build
+                                    ()
+                            )
+                        }
+                        view.title.text = "Musobaqa nizomi"
+                        view.text.text =
+                            "Avval bugun bajarilgan mashg'ulotlar uchun kundalikni to'ldiring"
+                        view.text.gravity = Gravity.CENTER_HORIZONTAL
+                        view.text.textSize = 22f
+                        alertDialog.setView(view.root)
+                        alertDialog.show()
                     }
-                    view.exit.setOnClickListener {
-                        requireActivity().finish()
-                    }
-                    alertDialog.setView(view.root)
-                    alertDialog.show()
                 }
             }
         requireActivity().onBackPressedDispatcher.addCallback(callback)

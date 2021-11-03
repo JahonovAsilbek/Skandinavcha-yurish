@@ -30,23 +30,9 @@
                 layout="@layout/nav_header_main" />
 
             <TextView
-                android:id="@+id/another_apps"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/drawer_menu_back"
-                android:fontFamily="@font/montserrat_medium"
-                android:padding="20dp"
-                android:text="Boshqa dasturlarimiz"
-                android:textColor="@android:color/white"
-                android:textSize="18sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layout" />
-
-            <TextView
                 android:id="@+id/about_app"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
                 android:background="@drawable/drawer_menu_back"
                 android:fontFamily="@font/montserrat_medium"
                 android:padding="20dp"
@@ -54,9 +40,10 @@
                 android:text="Ilova haqida"
                 android:textColor="@android:color/white"
                 android:textSize="18sp"
+                android:layout_marginRight="40dp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="@id/another_apps"
-                app:layout_constraintTop_toBottomOf="@id/another_apps" />
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout" />
 
             <TextView
                 android:id="@+id/rating"
@@ -71,7 +58,7 @@
                 android:textColor="@android:color/white"
                 android:textSize="18sp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="@id/another_apps"
+                app:layout_constraintRight_toRightOf="@id/about_app"
                 app:layout_constraintTop_toBottomOf="@id/about_app" />
 
             <TextView
@@ -87,7 +74,7 @@
                 android:textColor="@android:color/white"
                 android:textSize="18sp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="@id/another_apps"
+                app:layout_constraintRight_toRightOf="@id/about_app"
                 app:layout_constraintTop_toBottomOf="@id/rating" />
 
             <View

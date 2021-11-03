@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
@@ -45,31 +46,40 @@ class SettingsFragment : Fragment() {
 
     private fun editClick() {
         binding.editBtn.setOnClickListener {
-            UserDatabase.Get.getUserDatabase().getDao().updateUser(
-                User(
-                    user.uId,
-                    binding.name.text.toString().trim(),
-                    binding.surname.text.toString().trim(),
-                    binding.birthday.text.toString().trim(),
-                    binding.phoneNumber.text.toString().trim(),
-                    binding.aboutMe.text.toString().trim(),
-                    imagePath,
-                    user.point
-                )
-            )
-            profileChangeListener.dataChangeListener(
-                User(
-                    binding.name.text.toString().trim(),
-                    binding.surname.text.toString().trim(),
-                    binding.birthday.text.toString().trim(),
-                    binding.phoneNumber.text.toString().trim(),
-                    binding.aboutMe.text.toString().trim(),
-                    imagePath,
-                    user.point
-                )
-            )
+            val name = binding.name.text.toString().trim()
+            val surname = binding.surname.text.toString().trim()
+            if (name.isNotEmpty() && surname.isNotEmpty()) {
 
-            findNavController().popBackStack()
+                UserDatabase.Get.getUserDatabase().getDao().updateUser(
+                    User(
+                        user.uId,
+                        name,
+                        surname,
+                        binding.birthday.text.toString().trim(),
+                        binding.phoneNumber.text.toString().trim(),
+                        binding.aboutMe.text.toString().trim(),
+                        imagePath,
+                        user.point
+                    )
+                )
+                profileChangeListener.dataChangeListener(
+                    User(
+                        name,
+                        surname,
+                        binding.birthday.text.toString().trim(),
+                        binding.phoneNumber.text.toString().trim(),
+                        binding.aboutMe.text.toString().trim(),
+                        imagePath,
+                        user.point
+                    )
+                )
+
+                findNavController().popBackStack()
+            } else Toast.makeText(
+                binding.root.context,
+                "Ism-familiya kiritilishi zarur",
+                Toast.LENGTH_LONG
+            ).show()
         }
     }
 

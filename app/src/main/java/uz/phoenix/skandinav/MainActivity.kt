@@ -63,13 +63,13 @@ class MainActivity : AppCompatActivity(), SettingsFragment.ProfileChangeListener
         val user = UserDatabase.Get.getUserDatabase().getDao().getUser()
 
         if (user != null) {
-            if (user.imagePath != null) {
+            if (user.imagePath!!.isNotEmpty()) {
                 profileImage.setImageURI(
                     Uri.parse(
                         user.imagePath
                     )
                 )
-            }
+            }else profileImage.setImageResource(R.drawable.img1)
             name.text = user.name
             surname.text = user.surname
         }
@@ -111,11 +111,13 @@ class MainActivity : AppCompatActivity(), SettingsFragment.ProfileChangeListener
         val profileImage = findViewById<CircleImageView>(R.id.profile_image_circle)
         val name = findViewById<TextView>(R.id.name_drawer)
         val surname = findViewById<TextView>(R.id.surname)
-        profileImage.setImageURI(
-            Uri.parse(
-                user.imagePath
+        if (user.imagePath!!.isNotEmpty()) {
+            profileImage.setImageURI(
+                Uri.parse(
+                    user.imagePath
+                )
             )
-        )
+        }else profileImage.setImageResource(R.drawable.img1)
         name.text = user.name
         surname.text = user.surname
     }

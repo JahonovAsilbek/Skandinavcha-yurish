@@ -41,4 +41,7 @@ interface UserDao {
 
     @Query("delete from finished where finishedMonthId=:monthId and finishedTrainingName=:name")
     fun deleteFinishedTraining(monthId: Int, name: String)
+
+    @Query("select * from finished")
+    fun getAllFinishedTraining(): List<Finished>
 }
