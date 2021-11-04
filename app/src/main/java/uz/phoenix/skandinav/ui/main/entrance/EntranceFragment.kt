@@ -1,6 +1,5 @@
 package uz.phoenix.skandinav.ui.main.entrance
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -13,7 +12,6 @@ import androidx.navigation.fragment.findNavController
 import phoenix.skandinav.R
 import phoenix.skandinav.databinding.FragmentEntranceBinding
 import phoenix.skandinav.databinding.InfoDialog2Binding
-import phoenix.skandinav.databinding.InfoDialogBinding
 import uz.phoenix.skandinav.database.AppDatabase
 import uz.phoenix.skandinav.database.entities.Training
 

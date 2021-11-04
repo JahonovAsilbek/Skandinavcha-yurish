@@ -176,7 +176,7 @@ class PreparationPartFragment : Fragment() {
     private fun nordWalking1() {
         if (nordWalking != null) {
             binding.title.text = "Skandinavcha\nyurish"
-            binding.preparationPart.text = mainPart!!.nordWalking
+            binding.preparationPart.text = "Bugun ${mainPart!!.nordWalking} metr yuring"
             binding.image.visibility = View.GONE
         }
     }

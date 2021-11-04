@@ -36,18 +36,23 @@ class MainPartFragment : Fragment() {
         setNavigation()
         val bundle = Bundle()
         bundle.putSerializable("main_part", mainPart)
+        if (mainPart!!.nordWalking == null) {
+            binding.walking.visibility = View.INVISIBLE
+        }else if (mainPart!!.nordWalking!!.isEmpty()) {
+            binding.walking.visibility = View.INVISIBLE
+        }
 
         binding.tasks.setOnClickListener {
-            findNavController().navigate(R.id.tasksListFragment, bundle,navOptions.build())
+            findNavController().navigate(R.id.tasksListFragment, bundle, navOptions.build())
         }
 
         binding.games.setOnClickListener {
-            findNavController().navigate(R.id.preparationPartFragment, bundle,navOptions.build())
+            findNavController().navigate(R.id.preparationPartFragment, bundle, navOptions.build())
         }
 
         binding.walking.setOnClickListener {
             bundle.putSerializable("nord_walking", mainPart)
-            findNavController().navigate(R.id.preparationPartFragment, bundle,navOptions.build())
+            findNavController().navigate(R.id.preparationPartFragment, bundle, navOptions.build())
         }
 
         binding.back.setOnClickListener {

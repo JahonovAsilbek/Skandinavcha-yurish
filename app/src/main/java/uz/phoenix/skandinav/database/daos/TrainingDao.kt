@@ -9,9 +9,6 @@ import uz.phoenix.skandinav.database.entities.Training
 @Dao
 interface TrainingDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertTraining(training: Training)
-
     @Query("select * from training where monthId=:monthId")
     fun getTraining(monthId: Int): List<Training>
 

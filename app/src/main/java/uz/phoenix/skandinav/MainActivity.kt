@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity(), SettingsFragment.ProfileChangeListener
         val user = UserDatabase.Get.getUserDatabase().getDao().getUser()
 
         if (user != null) {
-            if (user.imagePath!!.isNotEmpty()) {
+            if (user.imagePath?.isNotEmpty() == true) {
                 profileImage.setImageURI(
                     Uri.parse(
                         user.imagePath

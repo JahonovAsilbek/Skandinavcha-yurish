@@ -118,6 +118,7 @@
                     android:id="@+id/continue_layout"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginLeft="40dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="40dp"
