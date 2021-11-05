@@ -11,12 +11,14 @@ class Finished {
     var id: Int? = null
     var finishedMonthId: Int? = null
     var finishedTrainingName: String? = null
-
-    @Ignore
-    constructor(finishedMonthId: Int?, finishedTrainingName: String?) {
-        this.finishedMonthId = finishedMonthId
-        this.finishedTrainingName = finishedTrainingName
-    }
+    var writedToDaily: Boolean? = null
 
     constructor()
+
+    @Ignore
+    constructor(finishedMonthId: Int?, finishedTrainingName: String?, writedToDaily: Boolean?) {
+        this.finishedMonthId = finishedMonthId
+        this.finishedTrainingName = finishedTrainingName
+        this.writedToDaily = writedToDaily
+    }
 }

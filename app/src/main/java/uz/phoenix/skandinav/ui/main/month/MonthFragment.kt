@@ -1,31 +1,35 @@
 package uz.phoenix.skandinav.ui.main.month
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import phoenix.skandinav.R
 import phoenix.skandinav.databinding.FragmentMonthBinding
+import phoenix.skandinav.databinding.InfoDialog2Binding
 import uz.phoenix.skandinav.database.AppDatabase
+import uz.phoenix.skandinav.database.UserDatabase
 import uz.phoenix.skandinav.database.entities.Month
 import uz.phoenix.skandinav.ui.main.month.adapters.MonthAdapter
 
-private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM1 = "history"
 private const val ARG_PARAM2 = "param2"
 
 class MonthFragment : Fragment() {
 
-    private var param1: String? = null
+    private var history: String? = null
     private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
+            history = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
     }
@@ -61,7 +65,47 @@ class MonthFragment : Fragment() {
             override fun onClick(month: Month) {
                 val bundle = Bundle()
                 bundle.putSerializable("month", month)
-                findNavController().navigate(R.id.trainingListFragment, bundle, navOptions.build())
+                if (history == null) {
+                    findNavController().navigate(
+                        R.id.trainingListFragment,
+                        bundle,
+                        navOptions.build()
+                    )
+                } else {
+                    val finishedTrainings =
+                        month.id?.let {
+                            UserDatabase.Get.getUserDatabase().getDao()
+                                .getFinishedTrainingByMonthId(
+                                    it
+                                )
+                        }
+
+                    if (finishedTrainings != null) {
+                        if (finishedTrainings.isEmpty()) {
+                            val dialog =
+                                AlertDialog.Builder(binding.root.context, R.style.RoundedCornersDialog)
+                            val alertDialog = dialog.create()
+                            val view = InfoDialog2Binding.inflate(layoutInflater, null, false)
+                            view.root.setBackgroundColor(resources.getColor(R.color.white))
+                            view.ok.setOnClickListener {
+                                alertDialog.cancel()
+                            }
+                            view.title.text = "Diqqat!"
+                            view.text.text = "Ushbu oy uchun yakunlangan mashg'ulot mavjud emas"
+                            view.text.gravity = Gravity.CENTER_HORIZONTAL
+                            view.text.textSize = 22f
+                            alertDialog.setView(view.root)
+                            alertDialog.show()
+                        } else {
+                            findNavController().navigate(
+                                R.id.historyFragment,
+                                bundle,
+                                navOptions.build()
+                            )
+                        }
+                    }
+
+                }
             }
         }
     }
@@ -83,10 +127,10 @@ class MonthFragment : Fragment() {
     companion object {
 
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(history: String, param2: String) =
             MonthFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
+                    putString(ARG_PARAM1, history)
                     putString(ARG_PARAM2, param2)
                 }
             }

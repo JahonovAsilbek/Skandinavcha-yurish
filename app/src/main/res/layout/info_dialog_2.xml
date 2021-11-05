@@ -12,7 +12,6 @@
         android:layout_marginTop="10dp"
         android:fontFamily="@font/montserrat_medium"
         android:gravity="center"
-        android:text="Tayoq uzunligini\no'lchash"
         android:textColor="@color/main_blue"
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -27,7 +26,6 @@
         android:layout_marginTop="5dp"
         android:layout_marginRight="10dp"
         android:fontFamily="@font/montserrat_medium"
-        android:text="@string/info_dialog_text"
         android:textColor="@color/main_text_color"
         android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/title" />

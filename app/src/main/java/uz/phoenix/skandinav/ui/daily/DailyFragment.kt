@@ -16,6 +16,7 @@ import phoenix.skandinav.databinding.*
 import uz.phoenix.skandinav.database.AppDatabase
 import uz.phoenix.skandinav.database.UserDatabase
 import uz.phoenix.skandinav.database.daos.TrainingDao
+import uz.phoenix.skandinav.database.entities.History
 import uz.phoenix.skandinav.ui.daily.adapters.DailyAdapter
 import java.text.SimpleDateFormat
 import java.util.*
@@ -113,6 +114,26 @@ class DailyFragment : Fragment() {
             ) {
                 UserDatabase.Get.getUserDatabase().getDao().deleteFinishedTraining(
                     monthId, training
+                )
+                UserDatabase.Get.getUserDatabase().getDao().insertHistory(
+                    History(
+                        monthId,
+                        training,
+                        health,
+                        mood,
+                        appetite,
+                        desire,
+                        sleep,
+                        trainingStartTime,
+                        trainingEndTime,
+                        nordWalkingLength,
+                        nordWalkingTime,
+                        trainingEntrancePeriod,
+                        trainingMainPartPeriod,
+                        trainingEndPartPeriod,
+                        fatigue,
+                        disorder
+                    )
                 )
                 findNavController().popBackStack()
             } else Toast.makeText(

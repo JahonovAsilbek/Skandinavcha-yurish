@@ -47,6 +47,19 @@ class MainActivity : AppCompatActivity(), SettingsFragment.ProfileChangeListener
         settingsClick()
         ratingClick()
         setDataToDrawer()
+        historyClick()
+    }
+
+    private fun historyClick() {
+        binding.history.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("history", "history")
+            binding.drawerLayout.closeDrawers()
+            findNavController(R.id.nav_host_fragment_content_main).navigate(
+                R.id.monthFragment,
+                bundle
+            )
+        }
     }
 
     private fun ratingClick() {
@@ -69,7 +82,7 @@ class MainActivity : AppCompatActivity(), SettingsFragment.ProfileChangeListener
                         user.imagePath
                     )
                 )
-            }else profileImage.setImageResource(R.drawable.img1)
+            } else profileImage.setImageResource(R.drawable.img1)
             name.text = user.name
             surname.text = user.surname
         }
@@ -117,7 +130,7 @@ class MainActivity : AppCompatActivity(), SettingsFragment.ProfileChangeListener
                     user.imagePath
                 )
             )
-        }else profileImage.setImageResource(R.drawable.img1)
+        } else profileImage.setImageResource(R.drawable.img1)
         name.text = user.name
         surname.text = user.surname
     }

@@ -48,7 +48,8 @@
         <entry key="app/src/main/res/layout/fragment_action_game.xml" value="0.12736486486486487" />
         <entry key="app/src/main/res/layout/fragment_daily.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_entrance.xml" value="0.18" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.12" />
+        <entry key="app/src/main/res/layout/fragment_history.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_input_data.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_main_part.xml" value="0.12736486486486487" />
         <entry key="app/src/main/res/layout/fragment_month.xml" value="0.16111111111111112" />
@@ -66,10 +67,12 @@
         <entry key="app/src/main/res/layout/fragment_training_list.xml" value="0.16111111111111112" />
         <entry key="app/src/main/res/layout/fragment_urm_tasks.xml" value="0.16" />
         <entry key="app/src/main/res/layout/fragment_video.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/history_dialog.xml" value="0.22" />
         <entry key="app/src/main/res/layout/info_dialog.xml" value="0.25" />
         <entry key="app/src/main/res/layout/info_dialog_2.xml" value="0.33" />
         <entry key="app/src/main/res/layout/info_dialog_3.xml" value="0.19635416666666666" />
         <entry key="app/src/main/res/layout/item_daily.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/item_history.xml" value="0.19635416666666666" />
         <entry key="app/src/main/res/layout/item_month.xml" value="0.2" />
         <entry key="app/src/main/res/layout/item_rating.xml" value="0.22" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.2" />

@@ -34,6 +34,8 @@ class PreparationPartFragment : Fragment() {
     private var nordWalking: MainPart? = null
     private var tournament: Tournament? = null
     private var users: ArrayList<Rating>? = null
+    lateinit var user: User
+    lateinit var view: InfoDialog3Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,7 +74,7 @@ class PreparationPartFragment : Fragment() {
             binding.preparationPart.text = endPart!!.endPart
             binding.image.visibility = View.GONE
             AppDatabase.GET.getTrainingDatabase().getTrainingDao().finishTraining(endPart?.id!! + 1)
-            val user = UserDatabase.Get.getUserDatabase().getDao().getUser()
+            user = UserDatabase.Get.getUserDatabase().getDao().getUser()
             val finishedTrainings =
                 UserDatabase.Get.getUserDatabase().getDao().getFinishedTrainingByName(
                     endPart?.monthId!!,
@@ -92,18 +94,20 @@ class PreparationPartFragment : Fragment() {
                         user.point + 150
                     )
                 )
+                user = UserDatabase.Get.getUserDatabase().getDao().getUser()
                 // set database when training finishes
                 // its uses for daily fragment
                 UserDatabase.Get.getUserDatabase().getDao().insertFinishedTraining(
                     Finished(
                         endPart?.monthId,
-                        endPart?.name
+                        endPart?.name,
+                        false
                     )
                 )
                 // update firestore database
                 loadFirebase(user)
             }
-            popBackStack()
+            popBackStack(user.point)
         }
     }
 
@@ -119,7 +123,7 @@ class PreparationPartFragment : Fragment() {
 
     private fun addUserToFirebase(user: User) {
         firebaseFireStore.collection("users").document(user.uId)
-            .set(Rating(user.name, user.surname, user.point))
+            .set(Rating(user.name, user.surname, user.point + 150))
             .addOnSuccessListener {
                 Toast.makeText(binding.root.context, "Success", Toast.LENGTH_SHORT).show()
             }
@@ -193,21 +197,22 @@ class PreparationPartFragment : Fragment() {
 
     private fun loadTraining() {
         if (training != null) {
-            binding.title.text = "Nazariy\nMa'lumotlar"
+            binding.title.text = "Tayyorlov qismi\n(3-5 daqiqa)"
             binding.preparationPart.text = training!!.preparationPart
             binding.image.visibility = View.GONE
         }
     }
 
-    private fun popBackStack() {
+    private fun popBackStack(point: Int) {
         val callback: OnBackPressedCallback =
             object : OnBackPressedCallback(true /* enabled by default */) {
                 override fun handleOnBackPressed() {
                     val dialog =
                         AlertDialog.Builder(binding.root.context, R.style.RoundedCornersDialog)
                     val alertDialog = dialog.create()
-                    val view = InfoDialog3Binding.inflate(layoutInflater, null, false)
+                    view = InfoDialog3Binding.inflate(layoutInflater, null, false)
                     view.root.setBackgroundColor(resources.getColor(R.color.white))
+                    view.allPoints.text = "Jami ballar: ${point}"
                     view.ok.setOnClickListener {
                         alertDialog.cancel()
                     }

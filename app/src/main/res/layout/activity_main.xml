@@ -36,7 +36,7 @@
                 android:background="@drawable/drawer_menu_back"
                 android:fontFamily="@font/montserrat_medium"
                 android:padding="20dp"
-                android:paddingStart="40dp"
+                android:paddingStart="30dp"
                 android:text="Ilova haqida"
                 android:textColor="@android:color/white"
                 android:textSize="18sp"
@@ -53,13 +53,29 @@
                 android:background="@drawable/drawer_menu_back"
                 android:fontFamily="@font/montserrat_medium"
                 android:padding="20dp"
-                android:paddingStart="40dp"
+                android:paddingStart="30dp"
                 android:text="Reyting"
                 android:textColor="@android:color/white"
                 android:textSize="18sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="@id/about_app"
                 app:layout_constraintTop_toBottomOf="@id/about_app" />
+
+            <TextView
+                android:id="@+id/history"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/drawer_menu_back"
+                android:fontFamily="@font/montserrat_medium"
+                android:padding="20dp"
+                android:paddingStart="30dp"
+                android:text="Mashg'ulotlar tarixi"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="@id/about_app"
+                app:layout_constraintTop_toBottomOf="@id/rating" />
 
             <TextView
                 android:id="@+id/settings"
@@ -69,13 +85,13 @@
                 android:background="@drawable/drawer_menu_back"
                 android:fontFamily="@font/montserrat_medium"
                 android:padding="20dp"
-                android:paddingStart="40dp"
+                android:paddingStart="30dp"
                 android:text="Sozlamalar"
                 android:textColor="@android:color/white"
                 android:textSize="18sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="@id/about_app"
-                app:layout_constraintTop_toBottomOf="@id/rating" />
+                app:layout_constraintTop_toBottomOf="@id/history" />
 
             <View
                 android:id="@+id/view2"

@@ -2,6 +2,7 @@ package uz.phoenix.skandinav.database.daos
 
 import androidx.room.*
 import uz.phoenix.skandinav.database.entities.Finished
+import uz.phoenix.skandinav.database.entities.History
 import uz.phoenix.skandinav.database.entities.User
 import uz.phoenix.skandinav.database.entities.UserData
 
@@ -33,7 +34,7 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertFinishedTraining(finished: Finished)
 
-    @Query("select finishedTrainingName from finished where finishedMonthId=:monthId ")
+    @Query("select finishedTrainingName from finished where finishedMonthId=:monthId and writedToDaily=0")
     fun getFinishedTrainingByMonthId(monthId: Int): List<String>
 
     @Query("select * from finished where finishedMonthId=:monthId and finishedTrainingName=:name")
@@ -44,4 +45,10 @@ interface UserDao {
 
     @Query("select * from finished")
     fun getAllFinishedTraining(): List<Finished>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertHistory(history: History)
+
+    @Query("select * from history where monthId=:monthId")
+    fun getHistoryByMonthId(monthId: Int):List<History>
 }

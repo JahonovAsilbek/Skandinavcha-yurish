@@ -23,6 +23,15 @@
         <action
             android:id="@+id/action_nav_home_to_ratingFragment"
             app:destination="@id/ratingFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_historyFragment"
+            app:destination="@id/historyFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_dailyFragment"
+            app:destination="@id/dailyFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_tournamentFragment"
+            app:destination="@id/tournamentFragment" />
     </fragment>
 
     <fragment
@@ -35,11 +44,7 @@
         android:id="@+id/tournamentFragment"
         android:name="uz.phoenix.skandinav.ui.tournament.TournamentFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_tournament" >
-        <action
-            android:id="@+id/action_tournamentFragment_to_dailyFragment"
-            app:destination="@id/dailyFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_tournament" />
     <fragment
         android:id="@+id/showUserDataFragment"
         android:name="uz.phoenix.skandinav.ui.settings.ShowUserDataFragment"
@@ -158,4 +163,8 @@
         android:id="@+id/dailyFragment"
         android:name="uz.phoenix.skandinav.ui.daily.DailyFragment"
         android:label="DailyFragment" />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="uz.phoenix.skandinav.ui.history.HistoryFragment"
+        android:label="HistoryFragment" />
 </navigation>

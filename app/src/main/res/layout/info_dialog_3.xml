@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/text"
+        android:id="@+id/point"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -29,10 +29,26 @@
         android:fontFamily="@font/montserrat_bold"
         android:gravity="center"
         android:padding="15dp"
-        android:text="150 BALL"
+        android:text="+150 BALL"
         android:textColor="@color/main_blue"
         android:textSize="30sp"
         app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <TextView
+        android:id="@+id/all_points"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="10dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:gravity="start"
+        android:padding="15dp"
+        android:text="Jami ballar: "
+        android:textColor="@color/main_text_color"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/point" />
 
     <com.gigamole.library.ShadowLayout
         android:layout_width="wrap_content"
@@ -40,7 +56,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text"
+        app:layout_constraintTop_toBottomOf="@id/all_points"
         app:sl_shadow_angle="45"
         app:sl_shadow_color="@color/main_blue"
         app:sl_shadow_distance="5dp"
