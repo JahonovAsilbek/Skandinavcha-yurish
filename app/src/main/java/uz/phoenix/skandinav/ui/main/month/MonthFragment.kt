@@ -75,7 +75,7 @@ class MonthFragment : Fragment() {
                     val finishedTrainings =
                         month.id?.let {
                             UserDatabase.Get.getUserDatabase().getDao()
-                                .getFinishedTrainingByMonthId(
+                                .getHistoryByMonthId(
                                     it
                                 )
                         }
