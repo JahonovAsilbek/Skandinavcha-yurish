@@ -63,7 +63,7 @@ class PreparationPartFragment : Fragment() {
         nordWalking1()
         endPart1()
         tournament1()
-        backClick()
+        backClick(user.point)
 
         return binding.root
     }
@@ -150,7 +150,7 @@ class PreparationPartFragment : Fragment() {
             }
     }
 
-    private fun backClick() {
+    private fun backClick(point: Int) {
         binding.back.setOnClickListener {
             if (endPart != null) {
                 val dialog =
@@ -158,6 +158,7 @@ class PreparationPartFragment : Fragment() {
                 val alertDialog = dialog.create()
                 val view = InfoDialog3Binding.inflate(layoutInflater, null, false)
                 view.root.setBackgroundColor(resources.getColor(R.color.white))
+                view.allPoints.text = "Jami ballar: $point"
                 view.ok.setOnClickListener {
                     alertDialog.cancel()
                 }
