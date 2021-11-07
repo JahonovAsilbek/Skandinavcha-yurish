@@ -20,11 +20,11 @@ class RatingAdapter : RecyclerView.Adapter<RatingAdapter.RatingVH>() {
 
         fun onBind(rating: Rating, position: Int) {
 
-            when (position) {
-                0 -> itemRatingBinding.layout.setBackgroundColor(Color.parseColor("#FFD700"))
-                1 -> itemRatingBinding.layout.setBackgroundColor(Color.parseColor("#C0C0C0"))
-                2 -> itemRatingBinding.layout.setBackgroundColor(Color.parseColor("#CD7F32"))
-            }
+//            when (position) {
+//                0 -> itemRatingBinding.layout.setBackgroundColor(Color.parseColor("#FFD700"))
+//                1 -> itemRatingBinding.layout.setBackgroundColor(Color.parseColor("#C0C0C0"))
+//                2 -> itemRatingBinding.layout.setBackgroundColor(Color.parseColor("#CD7F32"))
+//            }
 
             itemRatingBinding.name.text = rating.name + "\n" + rating.surname
             itemRatingBinding.point.text = rating.point.toString()

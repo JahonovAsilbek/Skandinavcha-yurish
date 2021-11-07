@@ -50,18 +50,21 @@ class RatingFragment : Fragment() {
         firebaseFireStore = FirebaseFirestore.getInstance()
         users = ArrayList()
         adapter = RatingAdapter()
+        adapter.setAdapter(users)
+        binding.rv.adapter = adapter
 
         firebaseFireStore.collection("users").get().addOnCompleteListener {
             val result = it.result
+            users.clear()
             result?.forEach { queryDocumentSnapshot ->
                 val user = queryDocumentSnapshot.toObject(Rating::class.java)
                 users.add(user)
-                val data = users.sortedBy { rating ->
-                    rating.point
-                }
-                adapter.setAdapter(data.reversed())
-                binding.rv.adapter = adapter
             }
+            users.sortByDescending {
+                it.point
+            }
+            adapter.notifyDataSetChanged()
+            binding.progress.visibility = View.INVISIBLE
         }.addOnFailureListener {
             Toast.makeText(binding.root.context, "Failure", Toast.LENGTH_SHORT).show()
         }

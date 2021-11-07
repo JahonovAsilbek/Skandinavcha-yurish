@@ -58,6 +58,7 @@ class PreparationPartFragment : Fragment() {
     ): View {
         binding = FragmentPreparationPartBinding.inflate(layoutInflater)
 
+        user = UserDatabase.Get.getUserDatabase().getDao().getUser()
         loadTraining()
         loadMainPart()
         nordWalking1()
@@ -134,7 +135,6 @@ class PreparationPartFragment : Fragment() {
 
     private fun loadFirebase(user: User) {
         firebaseFireStore = FirebaseFirestore.getInstance()
-
         if (checkUser(user.name + user.surname)) {
             addUserToFirebase(user)
         } else updateUserFirebase(user)
@@ -146,7 +146,7 @@ class PreparationPartFragment : Fragment() {
         map["point"] = user.point.toString()
         firebaseFireStore.collection("users").document(user.uId)
             .set(map, SetOptions.merge()).addOnCompleteListener {
-                Toast.makeText(binding.root.context, "Success", Toast.LENGTH_SHORT).show()
+                Toast.makeText(binding.root.context, "Updated", Toast.LENGTH_SHORT).show()
             }
     }
 
