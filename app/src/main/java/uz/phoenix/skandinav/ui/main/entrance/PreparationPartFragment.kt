@@ -81,8 +81,13 @@ class PreparationPartFragment : Fragment() {
                     endPart?.monthId!!,
                     endPart?.name!!
                 )
+            val historyTrainings =
+                UserDatabase.Get.getUserDatabase().getDao().getHistoryByMonthIdAndName(
+                    endPart?.monthId!!,
+                    endPart?.name!!
+                )
 
-            if (finishedTrainings.isEmpty()) {
+            if (finishedTrainings.isEmpty() && historyTrainings.isEmpty()) {
                 UserDatabase.Get.getUserDatabase().getDao().updateUser(
                     User(
                         user.uId,

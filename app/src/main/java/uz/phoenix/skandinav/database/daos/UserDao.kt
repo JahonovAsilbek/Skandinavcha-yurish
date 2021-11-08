@@ -50,5 +50,8 @@ interface UserDao {
     fun insertHistory(history: History)
 
     @Query("select * from history where monthId=:monthId")
-    fun getHistoryByMonthId(monthId: Int):List<History>
+    fun getHistoryByMonthId(monthId: Int): List<History>
+
+    @Query("select * from history where monthId=:monthId and trainingName=:name")
+    fun getHistoryByMonthIdAndName(monthId: Int, name: String):List<History>
 }
