@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "488663535800",
+    "project_id": "skandinav-259db",
+    "storage_bucket": "skandinav-259db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488663535800:android:b61a1a08ee60ae2a10644d",
+        "android_client_info": {
+          "package_name": "uz.phoenix.skandinav"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "488663535800-fjjc6bjuto5suk1pejksf1gl42sk0mov.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "uz.phoenix.skandinav",
+            "certificate_hash": "cf529406430e905af285cd7f07f7eecd65d3ca49"
+          }
+        },
+        {
+          "client_id": "488663535800-kdbv8e9t0dlos691kui2aqq82v79bvco.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMkCb96ijgk3yNZyqd4mTd_rOKLsCoxyg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "488663535800-kdbv8e9t0dlos691kui2aqq82v79bvco.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
